@@ -6,3 +6,13 @@ its operations in layers. The development has the main focus its extensibility a
 adapt, making possible its future grown and application in the medical diagnostic area. The
 adopted methodology handles the archiving and image retrieval in an organized and flexibel
 form, ofering an easily enviroment of learning for developers.
+
+
+# suggested environment
+
+Jdk 		1.7
+Tomcat		7	8080
+Mysql 		5.1	3306	imed2015
+Hibernate 	3
+Bootstrap 	3.1.0
+Jquery 		1.10.2
