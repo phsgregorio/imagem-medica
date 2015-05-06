@@ -3,6 +3,8 @@ package com.puc.hibernate.dao;
 import com.puc.hibernate.connection.HibernateUtil;
 import com.puc.imagemmed.doenca.DoencaDAO;
 import com.puc.imagemmed.doenca.DoencaDAOHibernate;
+import com.puc.imagemmed.especialidade.EspecialidadeDAO;
+import com.puc.imagemmed.especialidade.EspecialidadeDAOHibernate;
 import com.puc.imagemmed.exame.ExameDAO;
 import com.puc.imagemmed.exame.ExameDAOHibernate;
 import com.puc.imagemmed.imagem.ImagemDAO;
@@ -97,6 +99,16 @@ public class DAOFactory {
 	 */
 	public static DoencaDAO getDoencaDAO() {
 		DoencaDAO dao = new DoencaDAOHibernate();
+		dao.setSession(HibernateUtil.getFactory().getCurrentSession());
+		return dao;
+	}
+	
+	/**
+	 * Data access object for entity Especialidade
+	 * @return EspecialidadeDAO
+	 */
+	public static EspecialidadeDAO getEspecialidadeDAO() {
+		EspecialidadeDAO dao = new EspecialidadeDAOHibernate();
 		dao.setSession(HibernateUtil.getFactory().getCurrentSession());
 		return dao;
 	}

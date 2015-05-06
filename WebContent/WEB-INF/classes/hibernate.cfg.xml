@@ -42,6 +42,7 @@
         <mapping class="com.puc.imagemmed.pessoa.Pessoa"></mapping>
         <mapping class="com.puc.imagemmed.exame.Exame"></mapping>
         <mapping class="com.puc.imagemmed.doenca.Doenca"></mapping>
+        <mapping class="com.puc.imagemmed.especialidade.Especialidade"></mapping>
 
         <mapping class="com.puc.imagemmed.usuario.Usuario"></mapping>
         <mapping class="com.puc.imagemmed.permissao.Permissao"></mapping>
@@ -51,6 +52,7 @@
         <mapping class="com.puc.imagemmed.nota.Nota"></mapping>
         <mapping class="com.puc.imagemmed.imagem.Imagem"></mapping>
         
+        <mapping class="com.puc.imagemmed.paciente.Paciente"></mapping>
     </session-factory>
 
 </hibernate-configuration>

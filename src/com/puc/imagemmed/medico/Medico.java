@@ -2,6 +2,7 @@ package com.puc.imagemmed.medico;
 
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
@@ -39,9 +41,15 @@ public class Medico {
 	@OrderBy("str_nome")
 	private Pessoa pessoa;
 
-	// TODO mapear composições
-	private ArrayList<Especialidade> especialidade;
-	private ArrayList<Paciente> pacientes;
+	// TODO pedro.gregorio Resolver o problema com objetos custosos
+	@OneToMany(targetEntity = Especialidade.class, fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_especialidade")
+	private Collection<Especialidade> especialidade;
+	
+	// TODO pedro.gregorio Resolver o problema com objetos custosos
+	@OneToMany(targetEntity = Paciente.class, fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_paciente")
+	private Collection<Paciente> pacientes;
 
 	public Integer getId_medico() {
 		return id_medico;
@@ -67,19 +75,19 @@ public class Medico {
 		this.pessoa = pessoa;
 	}
 
-	public ArrayList<Especialidade> getEspecialidade() {
+	public Collection<Especialidade> getEspecialidade() {
 		return especialidade;
 	}
 
-	public void setEspecialidade(ArrayList<Especialidade> especialidade) {
+	public void setEspecialidade(Collection<Especialidade> especialidade) {
 		this.especialidade = especialidade;
 	}
 
-	public ArrayList<Paciente> getPacientes() {
+	public Collection<Paciente> getPacientes() {
 		return pacientes;
 	}
 
-	public void setPacientes(ArrayList<Paciente> pacientes) {
+	public void setPacientes(Collection<Paciente> pacientes) {
 		this.pacientes = pacientes;
 	}
 }

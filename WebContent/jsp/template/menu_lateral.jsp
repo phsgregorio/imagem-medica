@@ -55,6 +55,9 @@
 	                            <li>
 	                                <a href="Exame.do?o=init">Exames</a>
 	                            </li>
+	                            <li>
+	                                <a href="Especialidade.do?o=init">Especialidades</a>
+	                            </li>
 	                        </ul>
 	                    </li>
 	                    <li>

@@ -57,8 +57,8 @@ public class Instituicao {
 	@Column(name = "num_endereco", nullable = true)
 	private Integer num_endereco;
 	
-	// TODO Testar
-	@OneToMany(targetEntity = Medico.class, fetch = FetchType.LAZY)
+	// TODO pedro.gregorio Resolver o problema com objetos custosos
+	@OneToMany(targetEntity = Medico.class, fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_medico")
 	private Collection<Medico> medicos;
 
