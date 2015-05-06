@@ -4,9 +4,9 @@ package com.puc.commons.cdn;
 public final class CDN {
 
 	private static final Boolean IS_DEVELOPMENT = true;
-	private static final String DEVELOPMENT_URL = "http://192.168.1.140:8080/erp/resources/";
-	private static final String PRODUCTION_URL = "http://cdn.villefortconsulting.com/";
-	
+	private static final String DEVELOPMENT_URL = "http://localhost:8080/imagem-medica/";
+	private static final String PRODUCTION_URL = "";
+
 	public static final String BOOTSTRAP_2_2_2 = "2.2.2";
 	public static final String BOOTSTRAP_2_3_2 = "2.3.2";
 	public static final String JQUERY_1_8_3 = "1.8.3";

@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.puc.commons.exceptions.DAOException;
 import com.puc.commons.exceptions.RNException;
+import com.puc.commons.helpers.StringHelper;
+import com.puc.commons.rn.GenericRN;
 import com.puc.hibernate.dao.DAOFactory;
 
 
@@ -12,7 +14,7 @@ import com.puc.hibernate.dao.DAOFactory;
  * @author pedro.gregorio
  *
  */
-public class InstituicaoRN {
+public class InstituicaoRN extends GenericRN{
 
 	private InstituicaoDAO dao;
 	
@@ -27,6 +29,7 @@ public class InstituicaoRN {
 	 * @throws RNException
 	 */
 	public void save(Instituicao instituicao) throws RNException {
+
 		try {
 			if (instituicao.getId_instituicao() == null || instituicao.getId_instituicao() == 0) {
 				this.dao.create(instituicao);
@@ -36,6 +39,15 @@ public class InstituicaoRN {
 		} catch (DAOException e) {
 			throw new RNException("Falha ao salvar instituição.");
 		}
+	}
+	
+	@Override
+	public Boolean validate(Object o) {
+		Instituicao instituicao = (Instituicao) o;
+		return 
+				StringHelper.isNotEmpty(instituicao.getId_instituicao().toString()) && 
+				StringHelper.isNotEmpty(instituicao.getStr_nome()) && 
+				StringHelper.isNotEmpty(instituicao.getStr_email());
 	}
 
 	/**

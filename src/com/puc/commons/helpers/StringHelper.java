@@ -27,5 +27,12 @@ public class StringHelper {
 	public static String random() {
 		return new BigInteger(130, new SecureRandom()).toString(32);
 	}
+	
+	public static Boolean isEmpty(String s) {
+		return s==null || removerEspacos(s).length()==0;
+	}
+	
+	public static Boolean isNotEmpty(String s){
+		return !isEmpty(s);
+	}
 }
-
