@@ -80,7 +80,9 @@
 						
 						event.preventDefault();
 						
-						crudeObj.save();
+						crudeObj.save(function(){
+							crudeObj.list();
+						});
 
 						return false;
 					});

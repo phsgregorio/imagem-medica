@@ -24,7 +24,7 @@
 	                                <a href="Paciente.do?o=init">Cadastrar Paciente</a>
 	                            </li>
 	                            <li>
-	                                <a href="paciente_list.jsp">Listar Paciente</a>
+	                                <a href="Paciente.do?o=list">Listar Paciente</a>
 	                            </li>
 	                        </ul>
 	                        <!-- /.nav-second-level -->

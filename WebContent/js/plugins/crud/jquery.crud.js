@@ -15,7 +15,7 @@
 			CRUD_DELETE = "<button type=\"button\" class='btn btn-danger glyphicon glyphicon-trash crud-delete' title='Excluir' data-id=''></button>",
 			CRUD_EDIT = "<button type=\"button\" class='btn btn-info glyphicon glyphicon-edit crud-edit' title='Editar' data-id=''></button>",
 			CRUD_TEMPLATE_SAVE_SUCCESS = "<div title='Sistema'>Salvo com Sucesso</div>",
-			CRUD_TEMPLATE_REMOVE_SUCCESS = "<div title='Sistema'>Registro exclu�do com Sucesso</div>",
+			CRUD_TEMPLATE_REMOVE_SUCCESS = "<div title='Sistema'>Registro excluído com Sucesso</div>",
 			CRUD_TEMPLATE_LIST_TABLE_CONTENT = "<div class=\"table-responsive frm-list\">",
 			CRUD_TEMPLATE_LIST_TABLE = "<table class=\"table table-striped table-bordered table-hover\"></table>",
 			CRUD_TEMPLATE_LIST_THEAD = "<thead></thead>",
@@ -67,15 +67,15 @@
 						data: $this.serialize(),
 						callback: function(data){
 
+							// Callback
+							if (callbackFn) {
+								callbackFn.apply(this, arguments);
+							}
+
 							$(CRUD_TEMPLATE_SAVE_SUCCESS).dialog({ 
 						         autoOpen: true,
 						         zIndex: 500
 							});
-							
-							// TODO pedro.gregorio
-							//if (callbackFn) {
-							//	callbackFn.apply(this, arguments);
-							//}
 						}
 					});
 				},

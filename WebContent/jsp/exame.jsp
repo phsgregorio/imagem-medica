@@ -80,11 +80,9 @@
 						
 						event.preventDefault();
 						
-						crudeObj.save();
-
-						window.setTimeout(function(){
+						crudeObj.save(function(){
 							crudeObj.list();
-						}, 200);
+						});
 
 						return false;
 					});
