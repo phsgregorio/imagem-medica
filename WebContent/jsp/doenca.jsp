@@ -62,6 +62,7 @@
 						$btnListar = $("#listar-doenca"),
 						crudeObj = $frmDoenca.crud({
 							crudId : "id_doenca",
+							requiredFields : ["str_nome"],
 							list : ["id_doenca","str_nome","str_descricao"]
 						});
 					

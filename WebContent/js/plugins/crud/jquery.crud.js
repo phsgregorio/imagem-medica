@@ -15,6 +15,7 @@
 			CRUD_DELETE = "<button type=\"button\" class='btn btn-danger glyphicon glyphicon-trash crud-delete' title='Excluir' data-id=''></button>",
 			CRUD_EDIT = "<button type=\"button\" class='btn btn-info glyphicon glyphicon-edit crud-edit' title='Editar' data-id=''></button>",
 			CRUD_TEMPLATE_SAVE_SUCCESS = "<div title='Sistema'>Salvo com Sucesso</div>",
+			CRUD_TEMPLATE_INVALID_FIELDS = "<div title='Sistema'>Preencha os campos indicados antes de prosseguir</div>"
 			CRUD_TEMPLATE_REMOVE_SUCCESS = "<div title='Sistema'>Registro excluído com Sucesso</div>",
 			CRUD_TEMPLATE_LIST_TABLE_CONTENT = "<div class=\"table-responsive frm-list\">",
 			CRUD_TEMPLATE_LIST_TABLE = "<table class=\"table table-striped table-bordered table-hover\"></table>",
@@ -61,23 +62,60 @@
 				save : function(fn){
 					
 					var callbackFn = fn;
+					
+					// If theres no requiredFields or fields are not empty(valid)
+					if (!_obj.hasOwnProperty("requiredFields") || this.validate() ) {
+						
+						crudDefault.sendForm({
+							url: $this.attr("action")+FRM_SAVE,
+							data: $this.serialize(),
+							callback: function(data){
 
-					crudDefault.sendForm({
-						url: $this.attr("action")+FRM_SAVE,
-						data: $this.serialize(),
-						callback: function(data){
+								// Callback
+								if (callbackFn) {
+									callbackFn.apply(this, arguments);
+								}
 
-							// Callback
-							if (callbackFn) {
-								callbackFn.apply(this, arguments);
+								// Send user interface message
+								$(CRUD_TEMPLATE_SAVE_SUCCESS).dialog({ 
+							         autoOpen: true,
+							         zIndex: 500
+								});
+								
+								// Clean old required fields
+								$(".requiredField").removeClass("requiredField");
 							}
+						});
+					}
+				},
+				/**
+				 * Validate the crud form fields
+				 * _obj.requiredFields
+				 */
+				validate : function() {
 
-							$(CRUD_TEMPLATE_SAVE_SUCCESS).dialog({ 
-						         autoOpen: true,
-						         zIndex: 500
-							});
+					var $field,
+						returnValue = true;
+					
+					for (var i in _obj.requiredFields) {
+						
+						$field = $("[name="+_obj.requiredFields[i]+"]");
+
+						// Fields exists and not empty
+						if ($field.length!=0 && $field.val().trim().length==0) {
+							$field.addClass("requiredField");
+							returnValue = false;
 						}
-					});
+					}
+
+					if (!returnValue) {
+						$(CRUD_TEMPLATE_INVALID_FIELDS).dialog({ 
+					         autoOpen: true,
+					         zIndex: 500
+						});
+					}
+					
+					return returnValue;
 				},
 				list : function(fn){
 					

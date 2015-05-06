@@ -96,6 +96,7 @@
 						$btnListar = $("#listar-instituicao"),
 						crudeObj = $frmInstituicao.crud({
 							crudId : "id_instituicao",
+							requiredFields : ["str_nome","str_email"],
 							list : ["id_instituicao","str_nome","str_email","num_telefone"]
 						});
 					

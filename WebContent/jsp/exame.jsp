@@ -62,6 +62,7 @@
 						$btnListar = $("#listar-exame"),
 						crudeObj = $frmExame.crud({
 							crudId : "id_exame",
+							requiredFields : ["str_nome"],
 							list : ["id_exame","str_nome","str_descricao"]
 						});
 					

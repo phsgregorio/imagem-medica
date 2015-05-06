@@ -97,3 +97,9 @@
 	/** JQUERY ERROR */
 	.ui-dialog { z-index: 1000 !important ;}
 	.ui-front { z-index: 1000 !important; }
+	
+	/** CRUD FORM JQUERY PLUGIN */
+	.requiredField {
+		background: #F6DDDD;
+		border: #FFC2C2;
+	}
