@@ -36,7 +36,7 @@ public class Paciente {
 	@Column(name = "id_paciente", nullable = false)
 	private Integer id_paciente;
 	
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_pessoa")
 	@OrderBy("str_nome")
 	private Pessoa pessoa;

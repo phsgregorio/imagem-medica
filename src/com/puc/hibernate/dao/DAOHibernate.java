@@ -30,6 +30,20 @@ public abstract class DAOHibernate implements DAO {
 			throw new DAOException(e);
 		}
 	}
+	
+	@Override
+	public void create(Object object, Transaction transaction)
+			throws DAOException {
+		try {
+			
+			// #21
+			this.transaction = transaction;
+			this.session.save(object);
+			
+		} catch (HibernateException e) {
+			throw new DAOException(e);
+		}
+	}
 
 	@SuppressWarnings("rawtypes")
 	@Override
@@ -40,6 +54,19 @@ public abstract class DAOHibernate implements DAO {
 			Object object = this.session.get(clazz, id);
 			transaction.commit();
 			
+			return object;
+		} catch (HibernateException e) {
+			throw new DAOException(e);
+		}
+	}
+	
+	@Override
+	public Object retrieve(Class clazz, Serializable id, Transaction transaction)
+			throws DAOException {
+		try {
+			
+			this.transaction = transaction;
+			Object object = this.session.get(clazz, id);			
 			return object;
 		} catch (HibernateException e) {
 			throw new DAOException(e);
@@ -57,6 +84,18 @@ public abstract class DAOHibernate implements DAO {
 			throw new DAOException(e);
 		}
 	}
+	
+	@Override
+	public void update(Object object, Transaction transaction)
+			throws DAOException {
+		
+		try {
+			this.transaction = transaction;
+			this.session.merge(object);
+		} catch (HibernateException e) {
+			throw new DAOException(e);
+		}
+	}
 
 	@Override
 	public void delete(Object object) throws DAOException {
@@ -64,6 +103,17 @@ public abstract class DAOHibernate implements DAO {
 			this.transaction = this.session.beginTransaction();
 			this.session.delete(object);
 			this.transaction.commit();
+		} catch (HibernateException e) {
+			throw new DAOException(e);
+		}
+	}
+	
+	@Override
+	public void delete(Object object, Transaction transaction)
+			throws DAOException {
+		try {
+			this.transaction = transaction;
+			this.session.delete(object);
 		} catch (HibernateException e) {
 			throw new DAOException(e);
 		}
@@ -92,6 +142,23 @@ public abstract class DAOHibernate implements DAO {
 			List list = c.list();
 			
 			this.transaction.commit();
+
+			return list;
+		} catch (HibernateException e) {
+			throw new DAOException(e);
+		}
+	}
+	
+	@Override
+	public List list(Class clazz, String orderBy, Transaction transaction)
+			throws DAOException {
+		try {
+			
+			this.transaction = transaction;
+			
+			Criteria c = this.session.createCriteria(clazz);
+			c.addOrder(Order.asc(orderBy));
+			List list = c.list();
 
 			return list;
 		} catch (HibernateException e) {
@@ -145,5 +212,4 @@ public abstract class DAOHibernate implements DAO {
 	public void setSession(Session session) {
 		this.session = session;
 	}
-	
 }

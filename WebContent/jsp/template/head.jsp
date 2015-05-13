@@ -20,5 +20,9 @@
 	    <!-- Shadownbox Plugin -->
 	    <link href="css/image-view.css" rel="stylesheet">
 	  
+	    <!-- Plupload Plugin -->
+	    <link href="js/plugins/plupload/jquery.plupload.queue/css/jquery.plupload.queue.css" rel="stylesheet">
+	    <link href="js/plugins/plupload/jquery.ui.plupload/css/jquery.ui.plupload.css" rel="stylesheet">
+
 	    <!-- Include with every page -->
 	    <link href="css/sb-admin.css" rel="stylesheet">

@@ -25,7 +25,7 @@ import com.puc.imagemmed.pessoa.PessoaRN;
  * @author pedro.gregorio
  *
  */
-@WebServlet(name="Pessoa", urlPatterns={"/jsp/Pessoa.do"})
+@WebServlet(name="Pessoa", urlPatterns={"/Pessoa.do"})
 public class PessoaCMD extends HttpServlet{
 
 	/**
@@ -98,16 +98,16 @@ public class PessoaCMD extends HttpServlet{
 		RequestDispatcher rd = getServletContext().getRequestDispatcher("/jsp/pessoa.jsp");
 		rd.forward(req, resp);
 	}
-
+	
 	/**
-	 * Método responsável por gerenciar uma requisição para salvar uma nova Pessoa
-	 * @param req
-	 * @param resp
+	 * Método responsável por setar o dados vindos de um formulário no BO pessoa
+	 * @param pessoa
+	 * @return 
 	 */
-	private void save(HttpServletRequest req, HttpServletResponse resp) {
+	private Pessoa populatePessoa(HttpServletRequest req, HttpServletResponse resp) {
 
 		Pessoa pessoa = new Pessoa();
-		
+
 		pessoa.setId_pessoa(IntegerHelper.parseInt(req.getParameter("id_pessoa")));
 		pessoa.setStr_nome(req.getParameter("str_nome"));
 		pessoa.setStr_email(req.getParameter("str_email"));
@@ -120,21 +120,54 @@ public class PessoaCMD extends HttpServlet{
 			pessoa.setChr_sexo(req.getParameter("chr_sexo").charAt(0));	
 		}
 		
+		pessoa.setStr_uf(req.getParameter("str_uf"));
+		pessoa.setStr_cidade(req.getParameter("str_cidade"));
 		pessoa.setNum_cep(IntegerHelper.parseInt(req.getParameter("num_cep")));
 		pessoa.setStr_endereco(req.getParameter("str_endereco"));
 		pessoa.setStr_bairro(req.getParameter("str_bairro"));
 		pessoa.setNum_endereco(IntegerHelper.parseInt(req.getParameter("num_endereco")));
-
-		System.out.println("# Dados setados, pronto para o rock n roll");
 		
+		return pessoa;
+	}
+
+	/**
+	 * Método responsável por gerenciar uma requisição para salvar uma nova Pessoa
+	 * @param req
+	 * @param resp
+	 */
+	private void save(HttpServletRequest req, HttpServletResponse resp) {
+
+		Pessoa pessoa = populatePessoa(req, resp);
+
 		try {
-			
+
 			pessoaRN.save(pessoa);
 			response = ParserHelper.toJson(pessoa);
 		} catch (RNException e) {
 			response = ParserHelper.toJson(new Error(1,e.getMessage()));
 		} finally {
 			responseWriter.write(response);
+		}
+	}
+
+	/**
+	 * Método responsável por gerenciar uma requisição para salvar uma nova Pessoa através de outro CMD.
+	 * @param req
+	 * @param resp
+	 * @return
+	 */
+	public Pessoa savePessoa(HttpServletRequest req, HttpServletResponse resp) {
+
+		Pessoa pessoa = populatePessoa(req, resp);
+
+		try {
+
+			// Como esse método pode ser chamado através de outro CMD, é necessário inicializar o RN.
+			pessoaRN = new PessoaRN();
+			pessoaRN.save(pessoa);
+			return pessoa;
+		} catch (RNException e) {
+			return null;
 		}
 	}
 

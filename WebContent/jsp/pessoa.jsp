@@ -35,7 +35,7 @@
 	                                <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Data Nascimento</label>
-                                            <input name="dta_nascimento" class="form-control datepicker">
+                                            <input name="dta_nascimento" class="form-control datepicker"/>
                                         </div>
 										<div class="form-group">
                                             <label>Telefone</label>

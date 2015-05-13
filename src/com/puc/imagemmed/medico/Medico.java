@@ -1,7 +1,5 @@
 package com.puc.imagemmed.medico;
 
-
-import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.persistence.Column;

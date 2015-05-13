@@ -11,10 +11,10 @@
             <div class="row">
                 <div class="col-lg-12">	
                 	<div class="panel-options mb">
-						<button id="criar-medico" class="btn btn-info">Criar Médico</button>
+                		<button id="criar-medico" class="btn btn-info" type="button" data-view="frm-pessoa">Dados Gerais</button>
+                		<button type="button" class="btn offset" data-view="frm-medico">Dados do Médico</button>
 						<button id="listar-medico" class="btn btn-info">Listar Médico</button>
-                		<button type="button" class="btn offset" data-view="frm-pessoa">Dados Pessoais</button>
-                		<button type="button" class="btn offset" data-view="frm-medico">Dados Médios</button>
+
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -24,7 +24,8 @@
                             <div class="row">
                             	<div class="col-lg-12">
 									<fieldset>	
-	                                	<form id="frm-pessoa" name="frm-pessoa" action="Pessoa.do" method="POST" class="crud-frm">
+	                                	<form id="frm-pessoa" name="frm-pessoa" action="Medico.do" method="POST" class="crud-frm">
+	                                		<input type="hidden" name="salva_pessoa" value="true">
 		                                	<jsp:include page="pessoa.jsp"></jsp:include>
 										</form>
 	                                	<form id="frm-medico" name="frm-medico" action="Medico.do" method="POST" class="crud-frm hide app-tab">
@@ -53,9 +54,11 @@
 						$btnListar = $("#listar-medico"),
 						crudPessoa = $frmPessoa.crud({
 							crudId : "id_pessoa",
+							requiredFields : ["str_nome","str_email","dta_nascimento","str_uf","str_cidade"],
+							list : ["id_instituicao","str_nome","str_email","num_telefone"]
 						}),
 						crudMedico = $frmMedico.crud({
-							crudId : "id_medico",
+							crudId : "id_medico"
 						});
 					
 					$btnCriar.click(function(){
@@ -74,9 +77,14 @@
 					 * Save Pessoa Control
 					 */
 					$frmPessoa.submit(function(event){
-						//event.preventDefault();
-						//crudPessoa.save();
-						//return false;
+						
+						event.preventDefault();
+						
+						crudPessoa.save(function(){
+							crudMedico.list();
+	 					});
+
+						return false;
 					});
 					
 					/**

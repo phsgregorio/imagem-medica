@@ -4,7 +4,7 @@
     								<div class="col-md-12">
 										<fieldset>
 	                                       	<legend>Adicionar Material</legend>
-	                                       	<div class="col-md-6">
+                                       		<div class="col-md-6">
 		                                        <div class="form-group">
 		                                            <label>Tipo Do Material</label>
 		                                            <select name="id_tipo_material" class="form-control">
@@ -27,19 +27,13 @@
 		                                            <label>Descrição</label>
 													<textarea class="form-control" rows="3"></textarea>
 		                                        </div>
+												<div id="uploader">
+												    <p>Seu navegador não oferece suporte ao HTML5 ou HTML4.</p>
+												</div>
+												<br/>
 	                                       	 	<button type="submit" class="btn btn-success">Salvar</button>
 	                                      	 	<button type="reset" class="btn btn-warning">Limpar</button>
-											</div>
-		                                   	<div class="col-md-6">
-		                                        <div class="form-group" id="arquivos-material">
-		                                            <label>Arquivos</label>
-		                                            <input type="file" name="material" class="form-control"/>
-		                                        </div>
-		                                   	</div>
-		                                   	<div class="col-md-6">
-		                                   		<button type="button" id="add-imagem" class="btn btn-info">Adicionar</button>
-		                                   		<button type="button" id="rem-imagem" class="btn btn-danger">Excluir</button>
-		                                   	</div>
+                                       		</div>
 										</fieldset>
 									</div>
 								</div>

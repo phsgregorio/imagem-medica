@@ -22,6 +22,8 @@ import com.puc.imagemmed.medico.Medico;
 @Table(name = "imed_instituicao")
 public class Instituicao {
 
+	public static Integer ID_INSTITUICAO_IMED = 9;
+
 	@Id
 	@GeneratedValue
 	@Column(name = "id_instituicao", nullable = false)
@@ -57,7 +59,6 @@ public class Instituicao {
 	@Column(name = "num_endereco", nullable = true)
 	private Integer num_endereco;
 	
-	// TODO pedro.gregorio Resolver o problema com objetos custosos
 	@OneToMany(targetEntity = Medico.class, fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_medico")
 	private Collection<Medico> medicos;

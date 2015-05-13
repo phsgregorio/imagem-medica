@@ -17,6 +17,7 @@
 			CRUD_TEMPLATE_SAVE_SUCCESS = "<div title='Sistema'>Salvo com Sucesso</div>",
 			CRUD_TEMPLATE_INVALID_FIELDS = "<div title='Sistema'>Preencha os campos indicados antes de prosseguir</div>"
 			CRUD_TEMPLATE_REMOVE_SUCCESS = "<div title='Sistema'>Registro excluído com Sucesso</div>",
+			CRUD_TEMPLATE_LIST_EMPTY = "<div title='Sistema'>Nenhum registro foi encontrado</div>",
 			CRUD_TEMPLATE_LIST_TABLE_CONTENT = "<div class=\"table-responsive frm-list\">",
 			CRUD_TEMPLATE_LIST_TABLE = "<table class=\"table table-striped table-bordered table-hover\"></table>",
 			CRUD_TEMPLATE_LIST_THEAD = "<thead></thead>",
@@ -184,6 +185,7 @@
 								$this.append($content.append($table));
 								$table.dataTable();
 								
+								// Bind crud edit event
 								$(".crud-edit").click(function(event){
 									event.preventDefault();
 									
@@ -194,6 +196,7 @@
 									});
 								});
 								
+								// Bind crud delete event
 								$(".crud-delete").click(function(event){
 									event.preventDefault();
 									$(this).closest("tr").remove();
@@ -208,6 +211,13 @@
 											});
 										}
 									});
+								});
+							} else {
+								
+								// Nenhum registro cadastrado
+								$(CRUD_TEMPLATE_LIST_EMPTY).dialog({ 
+							         autoOpen: true,
+							         zIndex: 500
 								});
 							}
 						}

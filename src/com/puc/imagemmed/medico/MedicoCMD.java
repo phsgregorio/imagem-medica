@@ -16,6 +16,11 @@ import com.puc.commons.exceptions.RNException;
 import com.puc.commons.helpers.Error;
 import com.puc.commons.helpers.IntegerHelper;
 import com.puc.commons.helpers.ParserHelper;
+import com.puc.commons.helpers.StringHelper;
+import com.puc.imagemmed.instituicao.Instituicao;
+import com.puc.imagemmed.pessoa.Pessoa;
+import com.puc.imagemmed.pessoa.PessoaCMD;
+import com.puc.imagemmed.pessoa.PessoaRN;
 
 /**
  * Serlvet responsável por gerenciar as requições relacionadas a Medico
@@ -106,11 +111,30 @@ public class MedicoCMD extends HttpServlet{
 	 */
 	private void save(HttpServletRequest req, HttpServletResponse resp) {
 
-		Medico medico = new Medico();
-		medico.setId_medico(IntegerHelper.parseInt(req.getParameter("id_medico")));
+		// TODO pedro.gregorio Tinha que ter uma terceira classe -> PessoaSrv -> onde fosse possível passar os dados estaticamente com opção de transaction
+		// TODO pedro.gregorio Bolar esse esquema para outro dia
+		Pessoa pessoa;
 
 		try {
 			
+			// Salva dados da pessoa para prosseguir cadastro do médico
+			if (StringHelper.isNotEmpty(req.getParameter("salva_pessoa"))) {
+				
+				PessoaCMD pessoaCMD = new PessoaCMD();
+				pessoa = pessoaCMD.savePessoa(req, resp);
+			} else {
+				
+				PessoaRN pessoaRN = new PessoaRN();
+				pessoa = pessoaRN.retrieve(Integer.parseInt(req.getParameter("id_pessoa")));
+			}
+
+			System.out.println(pessoa);
+
+			Medico medico = new Medico();
+			medico.setId_medico(IntegerHelper.parseInt(req.getParameter("id_medico")));
+			medico.setPessoa(pessoa);
+			medico.setId_instituicao(Instituicao.ID_INSTITUICAO_IMED);
+
 			medicoRn.save(medico);
 			response = ParserHelper.toJson(medico);
 		} catch (RNException e) {

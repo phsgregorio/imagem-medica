@@ -317,3 +317,11 @@ form .mt {
 .frm-list {
 	padding: 15px;
 }
+
+input.datepicker{
+	width: 140px;
+}
+
+.plupload_header {
+	display: none;
+}
