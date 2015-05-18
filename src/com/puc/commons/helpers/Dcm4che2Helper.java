@@ -31,7 +31,7 @@ public class Dcm4che2Helper {
         Iterator<ImageReader> iterator = ImageIO.getImageReadersByFormatName("DICOM");
         
         while (iterator.hasNext()) {
-        	
+
             ImageReader imageReader = (ImageReader) iterator.next();
             DicomImageReadParam dicomImageReadParam = (DicomImageReadParam) imageReader.getDefaultReadParam();
             
@@ -47,7 +47,7 @@ public class Dcm4che2Helper {
                 e.printStackTrace();
             }
             
-            File file2 = new File("/test.jpg");
+            File file2 = new File(filePath + Globals.FILE_SEPARATOR +"test.jpg");
             
             try {
             	
@@ -66,6 +66,6 @@ public class Dcm4che2Helper {
 	
 	public static void main(String[] args) {
 		
-		convertDcmToJpeg(Globals.PATIENT_FILE_DIR + Globals.FILE_SEPARATOR + 1, "test.dcm");
+		convertDcmToJpeg(Globals.PATIENT_FILE_DIR + Globals.FILE_SEPARATOR + 1, "digest_article/brain_005.dcm");
 	}
 }
