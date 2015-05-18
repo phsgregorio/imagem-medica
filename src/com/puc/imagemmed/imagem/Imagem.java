@@ -2,8 +2,12 @@ package com.puc.imagemmed.imagem;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 /**
@@ -27,7 +31,13 @@ public class Imagem {
 	private String str_caminho_fisico;
 	
 	@Column(name = "str_descricao", nullable = true, length = 255)
-	private TipoImagem tipoImagem;
+	private String str_descricao;
+	
+//	TODO pedro.gregorio Criar CRUD tipoImagem
+//	@OneToOne(fetch = FetchType.EAGER)
+//	@JoinColumn(name = "id_pessoa")
+//	@OrderBy("str_nome")
+//	private TipoImagem tipoImagem;
 
 	public Integer getId_imagem() {
 		return id_imagem;
@@ -53,11 +63,11 @@ public class Imagem {
 		this.str_caminho_fisico = str_caminho_fisico;
 	}
 
-	public TipoImagem getTipoImagem() {
-		return tipoImagem;
+	public String getStr_descricao() {
+		return str_descricao;
 	}
 
-	public void setTipoImagem(TipoImagem tipoImagem) {
-		this.tipoImagem = tipoImagem;
+	public void setStr_descricao(String str_descricao) {
+		this.str_descricao = str_descricao;
 	}
 }

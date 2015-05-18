@@ -22,12 +22,15 @@ public class Dcm4che2Helper {
 	 * Método responsável por converter uma imagem DCM(Dicom) para Jpeg
 	 * @param filePath
 	 * @param fileName
+	 * @return tmpFile(É de responsabilidade do Desenvolvedor excluir essa imagem ao final de seu uso)
 	 */
-	public static void convertDcmToJpeg(String filePath, String fileName) {
-		
+	public static File convertDcmToJpeg(String filePath, String fileName) {
+
     	BufferedImage myJpegImage = null;
 
         File file = new File(filePath + Globals.FILE_SEPARATOR + fileName);
+        File tmpFile = null;
+
         Iterator<ImageReader> iterator = ImageIO.getImageReadersByFormatName("DICOM");
         
         while (iterator.hasNext()) {
@@ -47,25 +50,34 @@ public class Dcm4che2Helper {
                 e.printStackTrace();
             }
             
-            File file2 = new File(filePath + Globals.FILE_SEPARATOR +"test.jpg");
+            tmpFile = new File(filePath + Globals.FILE_SEPARATOR + fileName + Globals.TMP_IMAGE);
             
             try {
             	
-                OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(file2));
+                OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(tmpFile));
                 ImageIO.write(myJpegImage, "jpeg", outputStream);
                 
                 outputStream.close();
                 
             } catch (IOException e) {
+            	tmpFile = null;
                 e.printStackTrace();
             }
-            
-            System.out.println("Completed");
         }
+
+        return tmpFile;
 	}
 	
-	public static void main(String[] args) {
-		
-		convertDcmToJpeg(Globals.PATIENT_FILE_DIR + Globals.FILE_SEPARATOR + 1, "digest_article/brain_005.dcm");
+	/**
+	 * Método responsável por informar se um arquivo é do tipo DICOM
+	 * @param file
+	 * @return
+	 */
+	public static Boolean isDcmFile(File file) {
+		return file !=null && file.getName()!=null && file.getName().indexOf(Globals.DCM_EXTENSION)!=-1;
 	}
+	
+//	public static void main(String[] args) {	
+//		convertDcmToJpeg(Globals.PATIENT_FILE_DIR + Globals.FILE_SEPARATOR + 1, "anonimized.dcm");
+//	}
 }

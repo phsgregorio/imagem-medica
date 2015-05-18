@@ -33,16 +33,40 @@
 													<div id="uploader">
 													    <p>Seu navegador não oferece suporte ao HTML5 ou HTML4.</p>
 													</div>
-												</div>
-												<c:forEach items="${paciente.imagens}" var="imagem">
-													teste
-								                	<a href="${imagem.str_caminho_fisico}" class="medical-image">
-														<img src="${imagem.str_caminho_fisico}" class="img-thumb" alt=""/>
-													</a>
-												</c:forEach>
-												<br/>
+												</div><br/>
 	                                       	 	<button type="submit" class="btn btn-success">Salvar</button>
 	                                      	 	<button type="reset" class="btn btn-warning">Limpar</button>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+		                                            <label>Imagens Cadastradas</label>
+													<c:if test="${not empty paciente.imagens}">
+							                            <div class="table-responsive">
+															<table id="image-table" class="table table-striped table-bordered table-hover" id="dataTables">
+							                                    <thead>
+							                                        <tr>
+							                                            <th>Tipo Imagem</th>
+							                                            <th>Descrição</th>
+							                                            <th>Miniatura</th>
+							                                        </tr>
+							                                    </thead>
+							                                    <tbody>
+							                                    	<c:forEach items="${paciente.imagens}" var="imagem">
+								                                        <tr>
+								                                            <td></td>
+								                                            <td>${imagem.str_descricao}</td>
+								                                            <td align="center">
+															                	<a href="ServicoDeImagem.do?id=${imagem.id_paciente}&img=${imagem.str_caminho_fisico}" class="medical-image">
+																					<img src="ServicoDeImagem.do?id=${imagem.id_paciente}&img=${imagem.str_caminho_fisico}" class="img-thumb" alt="${imagem.str_descricao}"/>
+																				</a>
+								                                            </td>
+								                                        </tr>
+							                                        </c:forEach>
+																</tbody>
+															</table>
+														</div>
+													</c:if>
+		                                        </div>
                                        		</div>
 										</fieldset>
 									</div>

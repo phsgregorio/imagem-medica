@@ -20,7 +20,7 @@ import com.puc.imagemmed.pessoa.PessoaRN;
 
 /**
  * Serlvet responsável por gerenciar as requições relacionadas a Parente
- * @author 389888
+ * @author pedro.gregorio
  * TODO o excluir do pareten será realizado através de duas condições
  */
 @WebServlet(name="Parente", urlPatterns={"/Parente.do"})

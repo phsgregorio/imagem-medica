@@ -42,3 +42,19 @@
 			});
 		})(jQuery);
 	</script>
+    <script>
+	    $(document).ready(function() {
+	        
+	    	/**
+	    	 * Build the table
+	    	 */
+	    	$('#dataTables').dataTable();
+	    	
+	    	/**
+	    	 * Build Image View
+	    	 */
+	    	$("a.medical-image").imageView({
+	    		name : "medical-image"
+	    	});
+	    });
+    </script>

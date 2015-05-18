@@ -24,7 +24,7 @@ import com.puc.imagemmed.pessoa.PessoaRN;
 
 /**
  * Serlvet responsável por gerenciar as requições relacionadas a Medico
- * @author 389888
+ * @author pedro.gregorio
  *
  */
 @WebServlet(name="Medico", urlPatterns={"/Medico.do"})

@@ -8,4 +8,6 @@ public class Globals {
 	public static String FILE_DIR = "C:/tmp/";
 	public static String PATIENT_FILE_DIR = "C:/tmp/paciente";
 	public static String FILE_SEPARATOR = File.separator;
+	public static String TMP_IMAGE = ".tmp.jpg";
+	public static String DCM_EXTENSION = ".dcm";
 }

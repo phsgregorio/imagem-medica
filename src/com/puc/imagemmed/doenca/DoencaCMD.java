@@ -19,7 +19,7 @@ import com.puc.commons.helpers.ParserHelper;
 
 /**
  * Serlvet responsável por gerenciar as requições relacionadas a Doenca
- * @author 389888
+ * @author pedro.gregorio
  *
  */
 @WebServlet(name="Doenca", urlPatterns={"/Doenca.do"})

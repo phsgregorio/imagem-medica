@@ -19,7 +19,7 @@ import com.puc.commons.helpers.ParserHelper;
 
 /**
  * Serlvet responsável por gerenciar as requições relacionadas a Nota
- * @author 389888
+ * @author pedro.gregorio
  *
  */
 @WebServlet(name="Nota", urlPatterns={"/Nota.do"})

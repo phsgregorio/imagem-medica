@@ -19,7 +19,7 @@ import com.puc.imagemmed.usuario.UsuarioRN;
 
 /**
  * Serlvet responsável por gerenciar as requições relacionadas ao Login
- * @author 389888
+ * @author pedro.gregorio
  *
  */
 @WebServlet(name="Login", urlPatterns={"/Login.do"})

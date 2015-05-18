@@ -25,7 +25,7 @@ import com.puc.imagemmed.pessoa.PessoaRN;
 
 /**
  * Serlvet responsável por gerenciar as requições relacionadas a Usuario
- * @author 389888
+ * @author pedro.gregorio
  *
  */
 @WebServlet(name="Usuario", urlPatterns={"/Usuario.do"})
