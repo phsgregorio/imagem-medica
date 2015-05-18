@@ -10,7 +10,9 @@ form, ofering an easily enviroment of learning for developers.
 
 # suggested environment
 
-Jdk 	   	1.7 (in order to run dcm4che 2.0(it uses the JAI 1.3 Api) its necessary to use the JDK 1.7 x86 )
+Jdk 	   	1.7 x86(in the JAI 1.3 Api its necessary to use x86 version)
+
+Jai       1.1.3 x86
 
 Tomcat		7	8080
 
