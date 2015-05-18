@@ -76,6 +76,8 @@ public class PacienteCMD extends HttpServlet{
 				dele(req, resp);
 			} else if (option.equals("init")) {
 				init(req, resp);
+			} else if (option.equals("upload")) {
+				upload(req, resp);
 			}
 		} else {
 
@@ -181,4 +183,30 @@ public class PacienteCMD extends HttpServlet{
 			responseWriter.write(response);
 		}
 	}
+	
+	/**
+	 * Método responsável fazer o upload de uma imagem médica relacionada ao paciente
+	 * @author pedro.gregorio
+	 * @param req
+	 * @param resp
+	 */
+	private void upload(HttpServletRequest req, HttpServletResponse resp) {
+
+		try {
+
+			// Recupera o paciente sendo editado
+			Paciente paciente = pacienteRN.retrieve(Integer.parseInt(req.getParameter("id_paciente")));
+
+			// Upload do arquivo de forma singular
+			PacienteSVC.singleFileUpload(paciente, req);
+			
+			response = ParserHelper.toJson(paciente);
+		} catch (NumberFormatException e) {
+			response = ParserHelper.toJson(new Error(1, "O parâmetro informado não satisfaz os critérios de pesquisa."));
+		} catch (RNException e) {
+			response = ParserHelper.toJson(new Error(1, e.getMessage()));
+		} finally {
+			responseWriter.write(response);
+		}
+	}	
 }

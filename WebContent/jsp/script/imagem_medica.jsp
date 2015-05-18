@@ -10,13 +10,16 @@
 		(function($){
 			
 			$(document).ready(function(){
+				
 				$(function() {
+					
+					var $inputIdPaciente = $("[name=id_paciente]");
 					
 					$("#uploader").pluploadQueue({
 				        // General settings
 				        runtimes : 'html5,html4',
-				        url : '/examples/upload',
-				         
+				        url : 'Paciente.do?o=upload&id_paciente=1'/* TODO pedro.gregorio Resolver problema Session(implementar medico e paciente)+$inputIdPaciente.val()*/,
+
 				        filters : {
 				            max_file_size : '30mb',
 				 

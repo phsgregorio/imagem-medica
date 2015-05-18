@@ -27,8 +27,11 @@
 		                                            <label>Descrição</label>
 													<textarea class="form-control" rows="3"></textarea>
 		                                        </div>
-												<div id="uploader">
-												    <p>Seu navegador não oferece suporte ao HTML5 ou HTML4.</p>
+		                                        <div class="form-group">
+		                                            <label>Imagem</label>
+													<div id="uploader">
+													    <p>Seu navegador não oferece suporte ao HTML5 ou HTML4.</p>
+													</div>
 												</div>
 												<br/>
 	                                       	 	<button type="submit" class="btn btn-success">Salvar</button>

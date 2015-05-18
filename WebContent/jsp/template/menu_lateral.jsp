@@ -58,6 +58,9 @@
 	                            <li>
 	                                <a href="Especialidade.do?o=init">Especialidades</a>
 	                            </li>
+<!-- 	                            <li> -->
+<!-- 	                                <a href="Imagem.do?o=init">Imagem Médica</a> -->
+<!-- 	                            </li> -->
 	                        </ul>
 	                    </li>
 	                    <li>

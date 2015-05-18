@@ -27,10 +27,10 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form id="resumo" role="form" class="app-tab">
+                                    <form id="resumo" role="form" class="hide app-tab">
                                     	<jsp:include page="paciente/resumo.jsp"></jsp:include>
                                     </form>
-									<form id="dados-pessoais" name="dados-pessoais" action="Pessoa.do" role="form" class="hide app-tab">
+									<form id="dados-pessoais" name="dados-pessoais" action="Pessoa.do" role="form" class="app-tab">
 										<input type="hidden" name="id_paciente">
 				                    	<jsp:include page="pessoa.jsp"></jsp:include>
 									</form>
@@ -39,7 +39,7 @@
 				                    	<input type="hidden" name="id_paciente">
 				                    	<jsp:include page="pessoa.jsp"></jsp:include>
 									</form>
-                                    <form id=imagem-medica name="imagem-medica" role="form" class="hide app-tab">
+                                    <form id=imagem-medica name="imagem-medica" role="form" class="hide app-tab" enctype="multipart/form-data">
                                     	<input type="hidden" name="id_paciente">
                                     	<jsp:include page="paciente/imagem_medica.jsp"></jsp:include>
                                     </form>
