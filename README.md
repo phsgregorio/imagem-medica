@@ -10,7 +10,7 @@ form, ofering an easily enviroment of learning for developers.
 
 # suggested environment
 
-Jdk 	   	1.7 x86(in the JAI 1.3 Api its necessary to use x86 version)
+Jdk 	   	1.7 x86(in order to run the JAI 1.3 Api its necessary to use x86 version)
 
 Jai       1.1.3 x86
 
