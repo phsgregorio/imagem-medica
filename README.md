@@ -10,9 +10,16 @@ form, ofering an easily enviroment of learning for developers.
 
 # suggested environment
 
-Jdk 		1.7
+Jdk 	   	1.7 (in order to run dcm4che 2.0(it uses the JAI 1.3 Api) its necessary to use the JDK 1.7 x86 )
+
 Tomcat		7	8080
+
 Mysql 		5.1	3306	imed2015
-Hibernate 	3
-Bootstrap 	3.1.0
+
+Hibernate 3
+
+Bootstrap 3.1.0
+
 Jquery 		1.10.2
+
+dcm4che   2.0
