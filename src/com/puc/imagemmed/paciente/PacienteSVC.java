@@ -61,14 +61,14 @@ public class PacienteSVC {
 				    // Se não é um campo do formulário
 				    if(!item.isFormField()){
 
-				    	String fileDir = Globals.PATIENT_FILE_DIR + "/" + paciente.getId_paciente();
+				    	String fileDir = Globals.PATIENT_FILE_DIR + Globals.FILE_SEPARATOR + paciente.getId_paciente();
 						File dstFile = new File(fileDir);
 
 						if (!dstFile.exists()){
 							dstFile.mkdirs();
 						}
 						
-						File dst = new File(dstFile.getPath() + "/" + item.getName());
+						File dst = new File(dstFile.getPath() + Globals.FILE_SEPARATOR + item.getName());
 				        saveUploadFile(input, dst);
 				    }
 				    

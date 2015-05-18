@@ -12,7 +12,7 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name = "imed_imagem")
+@Table(name = "imed_paciente_imagem")
 public class Imagem {
 
 	@Id
@@ -23,8 +23,8 @@ public class Imagem {
 	@Column(name = "id_paciente", nullable = false)
 	private Integer id_paciente;
 	
-	@Column(name = "str_caminho", nullable = false, length = 255)
-	private String str_caminho;
+	@Column(name = "str_caminho_fisico", nullable = false, length = 255)
+	private String str_caminho_fisico;
 	
 	@Column(name = "str_descricao", nullable = true, length = 255)
 	private TipoImagem tipoImagem;
@@ -45,12 +45,12 @@ public class Imagem {
 		this.id_paciente = id_paciente;
 	}
 
-	public String getStr_caminho() {
-		return str_caminho;
+	public String getStr_caminho_fisico() {
+		return str_caminho_fisico;
 	}
 
-	public void setStr_caminho(String str_caminho) {
-		this.str_caminho = str_caminho;
+	public void setStr_caminho_fisico(String str_caminho_fisico) {
+		this.str_caminho_fisico = str_caminho_fisico;
 	}
 
 	public TipoImagem getTipoImagem() {

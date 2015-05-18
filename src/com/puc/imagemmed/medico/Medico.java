@@ -39,12 +39,10 @@ public class Medico {
 	@OrderBy("str_nome")
 	private Pessoa pessoa;
 
-	// TODO pedro.gregorio Resolver o problema com objetos custosos
 	@OneToMany(targetEntity = Especialidade.class, fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_especialidade")
 	private Collection<Especialidade> especialidade;
 	
-	// TODO pedro.gregorio Resolver o problema com objetos custosos
 	@OneToMany(targetEntity = Paciente.class, fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_paciente")
 	private Collection<Paciente> pacientes;

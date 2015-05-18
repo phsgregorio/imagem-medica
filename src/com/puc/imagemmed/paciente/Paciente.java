@@ -1,16 +1,21 @@
 package com.puc.imagemmed.paciente;
 
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
+import com.puc.imagemmed.imagem.Imagem;
 import com.puc.imagemmed.pessoa.Pessoa;
 
 
@@ -42,6 +47,10 @@ public class Paciente {
 //	private ArrayList<Diagnostico> diagnosticos;
 //	private ArrayList<Nota> notas;
 
+	@OneToMany(targetEntity = Imagem.class, fetch = FetchType.EAGER)
+	@JoinColumn(name = "id_paciente")
+	private Collection<Imagem> imagens;
+
 	public Integer getId_paciente() {
 		return id_paciente;
 	}
@@ -56,5 +65,13 @@ public class Paciente {
 
 	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
+	}
+
+	public Collection<Imagem> getImagens() {
+		return imagens;
+	}
+
+	public void setImagens(Collection<Imagem> imagens) {
+		this.imagens = imagens;
 	}
 }

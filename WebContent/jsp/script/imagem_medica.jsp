@@ -15,6 +15,7 @@
 					
 					var $inputIdPaciente = $("[name=id_paciente]");
 					
+					// Bind upload field events and ui
 					$("#uploader").pluploadQueue({
 				        // General settings
 				        runtimes : 'html5,html4',

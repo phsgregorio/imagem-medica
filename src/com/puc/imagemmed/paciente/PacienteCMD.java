@@ -97,6 +97,15 @@ public class PacienteCMD extends HttpServlet{
 
 		resp.setContentType("text/html");
 		RequestDispatcher rd = getServletContext().getRequestDispatcher("/jsp/paciente.jsp");
+		
+		// TODO pedro.gregorio Linhas abaixo inseridas apenas para testes(remover quando o cadastro do Paciente for corretamente implementado)
+		try {
+			Paciente paciente = pacienteRN.retrieve(1);
+			req.setAttribute("paciente", paciente);
+		} catch (RNException e) {
+			e.printStackTrace();
+		}
+
 		rd.forward(req, resp);
 	}
 

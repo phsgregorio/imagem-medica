@@ -19,7 +19,7 @@
 }
 
 .plupload_container {
-	height: 400px;
+/* 	height: 400px; */
 	min-height: 300px;
 	position: relative;
 }

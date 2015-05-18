@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
     							<div class="row">
     								<div class="col-md-12">
 										<fieldset>
@@ -33,6 +34,12 @@
 													    <p>Seu navegador não oferece suporte ao HTML5 ou HTML4.</p>
 													</div>
 												</div>
+												<c:forEach items="${paciente.imagens}" var="imagem">
+													teste
+								                	<a href="${imagem.str_caminho_fisico}" class="medical-image">
+														<img src="${imagem.str_caminho_fisico}" class="img-thumb" alt=""/>
+													</a>
+												</c:forEach>
 												<br/>
 	                                       	 	<button type="submit" class="btn btn-success">Salvar</button>
 	                                      	 	<button type="reset" class="btn btn-warning">Limpar</button>
