@@ -1,0 +1,60 @@
+Tempos de Upload de imagens de 15mb com múltiplas requisições simultâneas
+
+ 1- Upload Time 244, Parser Time(total) 247
+ 2- Upload Time 253, Parser Time(total) 256
+ 3- Upload Time 250, Parser Time(total) 252
+ 4- Upload Time 235, Parser Time(total) 238
+ 5- Upload Time 233, Parser Time(total) 235
+ 6- Upload Time 235, Parser Time(total) 238
+ 7- Upload Time 308, Parser Time(total) 310
+ 8- Upload Time 805, Parser Time(total) 808
+ 9- Upload Time 237, Parser Time(total) 239
+
+Tempos de Conversão e Solicitação de imagens de 15mb com múltiplas imagens
+
+ 1- 1327ms
+ 2- 1322ms
+ 3- 590ms
+ 4- 1416ms
+ 5- 999ms
+ 6- 627ms
+ 7- 1202ms
+ 8- 1550ms
+ 9- 1576ms
+
+O tempo necessário para carregar a imagem no visualizador é praticamento nulo(1ms). O maior custo vem de sua primeira
+solicitação(assim que a página é acessada), incluindo sua conversão.
+
+
+Tempos após aplicar um simples filtro na imagem no modo de visualização(inverter cores)
+
+ 1- 199ms
+ 2- 309ms
+ 3- 220ms
+ 4- 304ms
+ 5- 306ms
+ 6- 219ms
+ 7- 200ms
+ 8- 191ms
+ 9- 195ms
+
+Tempo total para o carregamento de uma página com 9 imagens de 15mb
+
+1 - 	Time until DOMready:  2810
+	Time until everything loaded:  2896
+
+2 - 	Time until DOMready:  2596
+	Time until everything loaded:  2669
+
+3 - 	Time until DOMready:  2990
+	Time until everything loaded:  3105
+
+Com a conversão das imagens DICOM para jpeg o modo de visualização não se torna um
+empecilho para o sistema. As conversões realizadas em um conjunto com a biblioteca
+Java Advanced Imaging e a biblioteca para gerenciamento do DICOM deixaram imagens
+de formato dcm de 15mb com aproximamente 210kb. A biblioteca desenvolvido para a
+visualização das imagens médicas através do navegador trabalha bem com as imagens
+jpeg, exigindo um pequeno tempo para manipulação dessas imagens de 210kb.
+
+Um grande cuidado deve ser tomado com o sistema de arquivos.
+
