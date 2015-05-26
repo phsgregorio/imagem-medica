@@ -202,14 +202,21 @@ public class PacienteCMD extends HttpServlet{
 	private void upload(HttpServletRequest req, HttpServletResponse resp) {
 
 		try {
+			
+			Long startTime, uploadTime, parserTime;
 
 			// Recupera o paciente sendo editado
 			Paciente paciente = pacienteRN.retrieve(Integer.parseInt(req.getParameter("id_paciente")));
+			startTime = System.currentTimeMillis();
 
 			// Upload do arquivo de forma singular
 			PacienteSVC.singleFileUpload(paciente, req);
+			uploadTime = System.currentTimeMillis();
 			
 			response = ParserHelper.toJson(paciente);
+			parserTime = System.currentTimeMillis();
+			
+			System.out.println("Upload Time "+(uploadTime-startTime)+", Parser Time(total) "+(parserTime-startTime));
 		} catch (NumberFormatException e) {
 			response = ParserHelper.toJson(new Error(1, "O parâmetro informado não satisfaz os critérios de pesquisa."));
 		} catch (RNException e) {
