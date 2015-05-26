@@ -1,0 +1,56 @@
+Tempos de Upload de imagens de 15mb com múltiplas requisições simultâneas
+
+ 1- Upload Time 244, Parser Time(total) 247
+ 2- Upload Time 253, Parser Time(total) 256
+ 3- Upload Time 250, Parser Time(total) 252
+ 4- Upload Time 235, Parser Time(total) 238
+ 5- Upload Time 233, Parser Time(total) 235
+ 6- Upload Time 235, Parser Time(total) 238
+ 7- Upload Time 308, Parser Time(total) 310
+ 8- Upload Time 805, Parser Time(total) 808
+ 9- Upload Time 237, Parser Time(total) 239						TOTAL		313,7ms
+
+Tempos de Conversão e Solicitação de imagens de 15mb com múltiplas imagens 
+
+ 1- 1327ms
+ 2- 1322ms
+ 3- 590ms
+ 4- 1416ms
+ 5- 999ms
+ 6- 627ms
+ 7- 1202ms
+ 8- 1550ms
+ 9- 1576ms
+
+Tempos após aplicar um simples filtro na imagem no modo de visualização(inverter cores) 
+
+ 1- 199ms
+ 2- 309ms
+ 3- 220ms
+ 4- 304ms
+ 5- 306ms
+ 6- 219ms
+ 7- 200ms
+ 8- 191ms
+ 9- 195ms
+
+O sistema foi implementado em uma máquina Windows 7, [DESCRIÇÃO MÁQUINA] e foi testado em um rede ethernet local.
+
+Quando o sistema for executado em uma rede local, por exemplo em uma rede compartilhada de um hospital, seus usuários não irão ter problemas quanto ao trafego de dados
+pela rede. Como o intuito do sistema é ser acessado de forma remota, isso gera uma preocupação com a rede disponibilizada para o tráfego das imagens. Se houver um grande 
+volume de imagens médicas trafegadas num curto período de tempo torna-se necessário uma rede com uma boa qualidade da banda destinada para o upload de arquivos.
+Deve ser provido no mínimo uma rede com X velocidade de upload para um volume de Y imagens serem enviadas no sistema em um tempo viável e aceitável.
+
+Outro ponto observado e de grande importância é o tempo levado na conversão das imagens médicas quando solicitadas. A interface responsável por gerenciar os registros
+clínicos do paciente é onde essa solicitação é realizada. Ao se abrir essa interface é feita uma solicitação a cada registro clínico relacionado ao paciente em questão. Cada uma dessas solicitações na máquina testada levou em média 1178,8ms para ser executada, incluindo nesse tempo a conversão do formato DICOM para o jpeg. Um sistema com múltiplos usuários fazendo várias solicitações simultâneas iria necessitar de um bom poder de processamento para realizar essas conversões em tempo abil. Uma vantagem
+é que cada solicitação ocorre de forma assincrona, sem depender do término do processamento de outra imagem. Graças a essa implementação o tempo de resposta e carregamento de toda a página diminui consideravelmente.
+
+Um recurso de grande importância para o sistema é a ferramenta para a visualização das imagens. Essa ferramenta para auxílio ao diagnóstico médico é oferecida ao usuário do sistema através do próprio navegador Web. Os testes de visualização de imagens foram executados no navegador Firefox Developer. O recurso utilizado para essa visualização é oferecido em novas versões dos principais browsers atuais como Internet Explorer, Firefox, Chrome, Opera e outros. Dessa forma os usuários que desejam fazer o uso do sistema para auxílio ao diagnóstico, como médicos e instituições, deveram usar versões atualizadas desses navegadores. O tempo necessário para carregar a imagem na ferramenta é praticamento nulo(em média 1ms). Esse custo é baixo devido a prévia solicitação descrita, as imagens são convertidas e retornadas ao site em formato jpeg. Por exemplo, uma imagem DICOM de 15mb tem como média de tamanho quando convertida para o formato jpeg de 200 a 300kb.
+
+A ferramenta disponibilizada também oferece métodos básicos de processamento de imagem para o auxílio ao diagnóstico médico. Um exemplo seria a inversão de cores de uma radiográfia. Os testes de inversão de cores foram realizados com uma imagem .dcm(DICOM) que foi convertida para o formato jpeg, e após convertida tinha como tamanho 213kb. A inversão de cores dessa imagem através da ferramenta utilizada e com o navegador Firefox Developer levou aproximadamente 238,1ms. 
+
+O acesso e armazenamento dessas imagens médicas a serem enviada para o sistema é o ponto mais importante a ser notado é o . Após o uso constante do sistema, um grande espaço para armazenamentos de dados se torna necessário. Por exemplo, se durante um dia forem enviadas ao sistema 30 imagens médicas de aproximadamente 20mb, no período de um mês o sistema já estaria armazenando aproximadamente 17Gb. Torna-se extremamente necessário então o estudo de novas políticas para o armazenamento desses dados, a forma de acesso e disponibilização além de uma escolha mais criteriosa para um adequado modelo de sistema de arquivos.
+
+CONCLUSÃO
+
+Com base no tempo médio desse e outros métodos experimentados, torna-se possível a avaliação de métodos mais complexos que possam auxiliar ainda mais o diagnóstico médico através do sistema.
