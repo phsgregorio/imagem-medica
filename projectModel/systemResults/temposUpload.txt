@@ -49,12 +49,4 @@ Tempo total para o carregamento de uma página com 9 imagens de 15mb
 3 - 	Time until DOMready:  2990
 	Time until everything loaded:  3105
 
-Com a conversão das imagens DICOM para jpeg o modo de visualização não se torna um
-empecilho para o sistema. As conversões realizadas em um conjunto com a biblioteca
-Java Advanced Imaging e a biblioteca para gerenciamento do DICOM deixaram imagens
-de formato dcm de 15mb com aproximamente 210kb. A biblioteca desenvolvido para a
-visualização das imagens médicas através do navegador trabalha bem com as imagens
-jpeg, exigindo um pequeno tempo para manipulação dessas imagens de 210kb.
-
-Um grande cuidado deve ser tomado com o sistema de arquivos.
 
