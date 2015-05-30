@@ -8,6 +8,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{\esp Introdução}
 
+
 O uso de sistemas digitais para o armazenamento e comunicação de imagens (PACS) tem se expandido em todo o mundo \cite{REF19}.
 A partir de sua utilização, torna-se possível armazenar, compartilhar, recuperar e auxiliar o diagnóstico através de imagens médicas. 
 Uma de suas maiores vantagens, é o uso desses sistemas para possibilitar a um paciente, o acesso a um especialista que não esteja próximo fisicamente. 
@@ -42,14 +43,14 @@ As ferramentas de PACS têm como principal fonte de dados as imagens, que podem 
 Torna-se então essencial definir diretivas para a entrada e saída de dados no sistema.
 Caso os dados não atendam a essas diretivas, o material acaba não contribuindo para o estudo ou pesquisa, tornando-se obsoleto.
 As PACS atuais implementam essas diretivas através do DICOM, um protocolo criado com o objetivo de normalizar a formatação, envio e recuperação de imagens médicas.
-Ele permite que suas informações sejam transmitidas entre equipamentos responsáveis por gerar a imagem, terminais de auxílio ao diagnóstico, médicos e hospitais.
+Ele permite que suas informações sejam transmitidas entre equipamentos responsáveis por gerar a imagem, terminais de auxílio ao diagnóstico, médicos e hospitais. Na figura \ref{fig:figura1} é possível visualizar a arquitetura de um PACS remoto.
 
 % Figura
 \begin{figure}[ht]
 	\centering	
-	\caption[\hspace{0.1cm}Diagrama da Arquitetura.]{Diagrama do fluxo do sistema}
+	\caption[\hspace{0.1cm}Diagrama da Arquitetura.]{Representação de um PACS remoto}
 	\vspace{-0.4cm}
-	\includegraphics[width=.8\textwidth]{figuras/diagramas/remoto.png}
+	\includegraphics[width=1.0\textwidth]{figuras/diagramas/remoto.png}
 	% Caption centralizada
 	% 	\captionsetup{justification=centering}
 	% Caption e fonte 
@@ -78,6 +79,7 @@ Em uma primeira fase, o sistema irá se destinar ao apoio diagnóstico médico a
 Os usuários serão divididos em grupos de acordo com seu papel no sistema, sendo compostos por: funcionários, médicos, pessoal autorizado do hospital e se necessário, usuários externos.
 
 \section{\esp Referêncial Teórico}
+
 
 As soluções disponibilizadas pela Telemedicina tornam possível capturar, armazenar, transmitir e até mesmo melhorar a informação na forma de registros clínicos, sons, imagens estáticas e vídeos \cite{REF02}.
 Sua área e subáreas trazem benefícios para médicos, hospitais e instituições, além do paciente, seu maior beneficiado.
@@ -156,44 +158,37 @@ Fatores como acessibilidade, flexibilidade e interatividade devem ser cuidadosam
 Para atender aos requisitos de uma interface intuitiva e clara foi utilizado o Java Server Pages(JSP).
 Esse integrado ao HTML permite adicionar dinamismo a páginas web, criando padrões e reutilizando componentes nas interfaces.
 Para oferecer um padrão visual e acessível aos componentes do JSP as interfaces foram desenvolvidas através da utilização do framework Bootstrap.
-Enquanto o JSP se preocupa com a estruturação da página esse framework reúne uma série de recursos, que auxiliam na aparência visual da interface.
-Ele é basicamente composto de dois arquivos, um com o formato CSS(Cascading Style Sheets), responsável pelo estilo do documento e outro com o formato JS(JavaScript), responsável por interações dinâmicas com o documento HTML. 
+Enquanto o JSP se preocupa com a estruturação do  documento, o framework reúne uma série de recursos que contribuem com o visual da interface. Também foi utilizado o framework JQuery, com propósito de auxiliar em uma melhor interação do usuário e interface.
 
-O propósito principal da interface é fazer a comunicação com a segunda camada do sistema, o WebService Java.
-O processo de comunicação resumido no seguinte fluxo: o usuário através da interface realiza uma operação.
-Essa operação resulta em uma requisição HTTP para o servidor que hospeda o serviço WEB, na tentativa de uma possível inserção ou busca de dados ou imagens médicas.
-Ao término dessa requisição e processamento no servidor, é retornado uma resposta, que pode ter resultado de sucesso ou falha.
-A resposta do servidor a essa requisição é retornada nos formatos XML ou JSON.
+A primeira camada também oferece suporte para a visualização de imagens médicas através do navegador WEB. Essa ferramenta foi desenvolvida com auxilio do framework JQuery e de recursos oferecidos pelo HTML5. Ela fornece ao médico uma interface dinâmica para a visualização de registros clínicos de determinado paciente. Para registros clínicos como imagens médicas é possível aplicar operações que facilitem o diagnóstico. A biblioteca permite que outros algoritmos de processamento de imagens possam ser futuramente anexados e utilizados através da interface.
 
-Como ambos são padrões universais de intercâmbio de dados, e como o âmbito desse sistema é ser flexível (generic concept), os dois formatos foram adotados como tipo de resposta as requisições.
+A interface do sistema necessita do WebService para seu correto funcionamento, porém o serviço WEB não necessita da interface para realizar suas operações. Ele foi implementado de forma que possa interagir com outros sistemas, através de requisições HTTP padronizadas.
+O processo de comunicação é resumido no seguinte fluxo: um usuário através de uma interface(essa pode ser um sistema ou mesmo um terminal) realiza solicitações, que são gerenciadas pelo serviço WEB.
+Uma requisição HTTP é enviada para o servidor responsável pelo serviço WEB, na tentativa de uma possível inserção ou busca de dados e imagens médicas.
+Ao término do processamento da requisição no servidor uma resposta é retornada, esse retorno pode indicar sucesso ou falha da operação.
+
+Assim como a arquitetura proposta por \cite{REF10} o serviço WEB tem como formato de suas respostas os padrões XML ou JSON.
+Ambos são padrões universais de intercâmbio de dados, como o âmbito do sistema é ser flexível, os dois formatos foram adotados como tipo de resposta as requisições.
 O Extensible Markup Language(XML) é uma linguagem de marcação, amplamente utilizada no intercâmbio de dados entre sistemas.
 O Javascript Object Notation (JSON), como seu nome diz, é a notação de um objeto na linguagem JavaScript, e assim como o XML também é utilizado para trafego de dados.
-Os dois possuem suas vantagens e desvantagens em relação um ao outro.
-Contudo esses pontos não serão abordados, o intuito principal é a flexibilidade e possibilidade de integração com outros sistemas \cite{REF18}.
+Os dois possuem vantagens e desvantagens, porém esses pontos não serão abordados, o objetivo aqui é oferecer uma arquitetura flexível que facilite a integração com outros sistemas \cite{REF18}.
 
-Os dados retornados como resposta às requisições são objetos Java representados em formato de texto.
-Os dados de um paciente por exemplo é o mapeamento de uma instância da classe Paciente.
-Esse objeto então será convertido em uma reposta de texto nos formatos JSON ou XML.
-Para realizar essa conversão, foram utilizadas duas bibliotecas de parser.
-Uma delas é a Google Data APIs Cliente Library, responsável por converter um objeto Java em uma cadeia de texto no formato XML.
-Já  a conversão de um objeto Java para uma cadeia de texto do tipo JSON é feita com a biblioteca Google-Json API.
+Os dados retornados como resposta às requisições são representações textuais de objetos Java.
+Por exemplo, um paciente físico é mapeado no sistema através de uma instância da classe \textit{Paciente}.
+A instância da classe será então convertida em uma cadeia de caracteres nos formatos padrões do sistema, JSON ou XML.
+Para realizar essa conversão, foi necessário a utilização de duas bibliotecas de parser.
+A Google Data APIs Cliente Library é uma delas, responsável por converter um objeto na linguagem Java para um String textual no formato XML.
+A Google-Json API foi a outra biblioteca utilizada, que faz semelhante conversão, porém tem como retorno uma String JSON.
 
-Com o intuito de compartilhar imagens médicas com diferentes instituições, o intercâmbio de dados entre as camadas deve ser feito de forma adequada.
-A transição de registros clínicos, dados pessoais, histórico, imagens médicas deve garantir segurança e o devido acesso.
-As informações do paciente devem apenas ser acessados por usuários autorizados, de âmbito profissional ou educativo.
-Para atingir esse objetivo foi utilizado um canal criptografado para intercâmbio dos dados, o algoritmo de criptografia utilizado para essa finalidade foi o AES.
-Cada instituição ou profissional médico terá uma chave, e com auxilio dessa chave será feita a transmissão de dados para o sistema.
-
-Após os dados serem criptografados ou descriptografados, o WebService assume o fluxo das operações internas.
-A principal tarefa nesse estágio é a comunicação com o sistema de arquivos e com o banco de dados.
-Assim como todo o projeto foi separado em camadas, o WebService foi implementado utlizando o Modelo-Visão-Controlador(MVC).
-O MVC é um modelo de arquitetura de software, que separa a interação com o usuário da representação e do armazenamento da informação.
+Após o tratamento dos dados recebidos pela requisção HTTP, o serviço WEB deve gerenciar todo o fluxo de operações internas. Esse estágio consiste na comunicação com o sistema de arquivos e banco de dados.
+O modelo de arquitetura em camadas também foi adotado no desenvolvimento do WebService. Ele foi planejado e implementado baseado no conceito Modelo-Visão-Controlador(MVC).
+O MVC é um modelo de arquitetura de software, que separa a interação do usuário com dada interface da representação e do armazenamento da informação.
 
 \begin{figure}[ht]
 	\centering	
-	\caption[\hspace{0.1cm}Diagrama de Sequência.]{Diagrama de sequência MVC}
+	\caption[\hspace{0.1cm}Diagrama de Sequência.]{Diagrama de sequência da Arquitetura}
 	\vspace{-0.4cm}
-	\includegraphics[width=.8\textwidth]{figuras/sequencia.png}
+	\includegraphics[width=1.0\textwidth]{figuras/diagramas/sequencia.png}
 	% Caption centralizada
 	% 	\captionsetup{justification=centering}
 	% Caption e fonte 
@@ -232,14 +227,34 @@ Ao final desse processo, a resposta referente à requisição solicitada ao WebS
 
 \section{\esp Resultados}
 
-O sistema foi implementado em uma máquina Windows 7, Java Runtime environment 1.7, Java Advanced Imaging 1.1.3 e foi testado em um rede ethernet local 100 Mbit/s, utilizando o navegador Web Firefox Developer. Os testes realizados nessa máquina não apontaram problemas quanto ao trafego de dados pela rede. Contudo, o intuito do sistema é ser acessado de forma remota, isso gera uma preocupação com a rede disponibilizada para o tráfego das imagens. Na figura 4 é possível visualizar a interface responsável pelo envio dos registros clínicos de um paciente. Nessa mesma interface foi realizado um teste do envio de múltiplas imagens DICOM simultaneamente, em médica cada imagem levou aproximadamente 313,7ms para ser enviada ao sistema de arquivos. Se houver um grande volume de imagens médicas trafegadas num curto período de tempo, torna-se necessário a disponibilização de uma rede com grande banda destinada para o upload de arquivos
+O sistema foi implementado em uma máquina Windows 7, Java Runtime environment 1.7, Java Advanced Imaging 1.1.3 e foi testado em um rede ethernet local 100 Mbit/s, utilizando o navegador Web Firefox Developer. Os testes realizados nessa máquina não apontaram problemas quanto ao trafego de dados pela rede. Contudo, o intuito do sistema é ser acessado de forma remota, isso gera uma preocupação com a rede disponibilizada para o tráfego das imagens. Na \ref{fig:figura3} é possível visualizar a interface responsável pelo envio dos registros clínicos de um paciente. Nessa mesma interface foi realizado um teste do envio de múltiplas imagens DICOM simultaneamente, em médica cada imagem levou aproximadamente 313,7ms para ser enviada ao sistema de arquivos. Se houver um grande volume de imagens médicas trafegadas num curto período de tempo, torna-se necessário a disponibilização de uma rede com grande banda destinada para o upload de arquivos
 
-% Figura
+A conversão das imagens médicas quando solicitadas foi outro ponto observado durante os testes . A interface responsável por gerenciar os registros clínicos do paciente é onde essa solicitação é realizada. Ao se abrir essa interface é feita uma solicitação a cada registro clínico relacionado ao paciente em questão. Cada uma dessas solicitações na máquina testada levou em média 1178,8ms para ser executada, incluindo nesse tempo a conversão do formato DICOM para o jpeg. Um sistema com  múltiplos usuários fazendo várias solicitações simultâneas iria necessitar de um bom poder de processamento para realizar essas conversões em tempo hábil. Uma vantagem é que cada solicitação ocorre de forma assíncrona, sem depender do término do processamento de outra imagem. Graças a essa implementação o tempo de resposta e carregamento de toda a página diminui consideravelmente.
+
 \begin{figure}[ht]
 	\centering	
-	\caption[\hspace{0.1cm}Imagens Clínicas.]{Envio de Múltiplas Imagens}
+	\caption[\hspace{0.1cm}Imagens Clínicas.]{Solicitação e Envio Imagens}
 	\vspace{-0.4cm}
-	\includegraphics[width=.8\textwidth]{figuras/envioMultiplasImagens15mb.png}
+	\includegraphics[width=1.0\textwidth]{figuras/envioMultiplasImagens15mb.png}
+	% Caption centralizada
+	% 	\captionsetup{justification=centering}
+	% Caption e fonte 
+	\vspace{-0.2cm}
+	%\\\textbf{\footnotesize Fonte: \cite{cap-livro} }
+	\label{fig:figura3}
+\end{figure}
+
+Um recurso de grande importância para o sistema é a ferramenta para a visualização das imagens. Essa ferramenta para auxílio ao diagnóstico médico é oferecida ao usuário do 
+sistema através do próprio navegador Web. Os testes de visualização de imagens foram executados no navegador Firefox Developer. O recurso utilizado para essa visualização é 
+oferecido em novas versões dos principais browsers atuais como Internet Explorer, Firefox, Chrome, Opera e outros. Dessa forma os usuários que desejam fazer o uso do sistema 
+para auxílio ao diagnóstico, como médicos e instituições, deveram usar versões atualizadas desses navegadores. O tempo necessário para carregar a imagem na ferramenta é
+praticamento nulo(em média 1ms). Esse custo é baixo devido a prévia solicitação descrita, as imagens são convertidas e retornadas ao site em formato jpeg. Por exemplo, uma  imagem DICOM de 15mb tem como média de tamanho quando convertida para o formato jpeg de 200KB a 300KB. Na figura \ref{fig:figura4} é possível visualizar a ferramenta acessando uma imagem DICOM através do navegador Firefox.
+
+\begin{figure}[ht]
+	\centering	
+	\caption[\hspace{0.1cm}Imagens Clínicas.]{Visualização da Imagem Médica}
+	\vspace{-0.4cm}
+	\includegraphics[width=1.0\textwidth]{figuras/visualizacaoImagemMedicaGrandeResolucao.png}
 	% Caption centralizada
 	% 	\captionsetup{justification=centering}
 	% Caption e fonte 
@@ -248,59 +263,24 @@ O sistema foi implementado em uma máquina Windows 7, Java Runtime environment 1
 	\label{fig:figura4}
 \end{figure}
 
-A conversão das imagens médicas quando solicitadas foi outro ponto observado durante os testes . A interface responsável por gerenciar os registros clínicos do paciente é onde essa solicitação é realizada. Ao se abrir essa interface é feita uma solicitação a cada registro clínico relacionado ao paciente em questão. Cada uma dessas solicitações na máquina testada levou em média 1178,8ms para ser executada, incluindo nesse tempo a conversão do formato DICOM para o jpeg. Um sistema com  múltiplos usuários fazendo várias solicitações simultâneas iria necessitar de um bom poder de processamento para realizar essas conversões em tempo hábil. Uma vantagem é que cada solicitação ocorre de forma assíncrona, sem depender do término do processamento de outra imagem. Graças a essa implementação o tempo de resposta e carregamento de toda a página diminui consideravelmente.
-
-\begin{figure}[ht]
-	\centering	
-	\caption[\hspace{0.1cm}Imagens Clínicas.]{Solicitação de Múltiplas Imagens}
-	\vspace{-0.4cm}
-	\includegraphics[width=.8\textwidth]{figuras/solicitacaoMultiplasImagens15mb.png}
-	% Caption centralizada
-	% 	\captionsetup{justification=centering}
-	% Caption e fonte 
-	\vspace{-0.2cm}
-	%\\\textbf{\footnotesize Fonte: \cite{cap-livro} }
-	\label{fig:figura5}
-\end{figure}
-
-Um recurso de grande importância para o sistema é a ferramenta para a visualização das imagens. Essa ferramenta para auxílio ao diagnóstico médico é oferecida ao usuário do 
-sistema através do próprio navegador Web. Os testes de visualização de imagens foram executados no navegador Firefox Developer. O recurso utilizado para essa visualização é 
-oferecido em novas versões dos principais browsers atuais como Internet Explorer, Firefox, Chrome, Opera e outros. Dessa forma os usuários que desejam fazer o uso do sistema 
-para auxílio ao diagnóstico, como médicos e instituições, deveram usar versões atualizadas desses navegadores. O tempo necessário para carregar a imagem na ferramenta é
-praticamento nulo(em média 1ms). Esse custo é baixo devido a prévia solicitação descrita, as imagens são convertidas e retornadas ao site em formato jpeg. Por exemplo, uma 
-imagem DICOM de 15mb tem como média de tamanho quando convertida para o formato jpeg de 200 a 300kb.
-
-\begin{figure}[ht]
-	\centering	
-	\caption[\hspace{0.1cm}Imagens Clínicas.]{Visualização da Imagem Médica}
-	\vspace{-0.4cm}
-	\includegraphics[width=.8\textwidth]{figuras/visualizacaoImagemMedicaGrandeResolucao.png}
-	% Caption centralizada
-	% 	\captionsetup{justification=centering}
-	% Caption e fonte 
-	\vspace{-0.2cm}
-	%\\\textbf{\footnotesize Fonte: \cite{cap-livro} }
-	\label{fig:figura6}
-\end{figure}
-
 A ferramenta disponibilizada também oferece métodos básicos de processamento de imagem para o auxílio ao diagnóstico médico. Um exemplo seria a inversão de cores de uma radiográfica. Os testes de inversão de cores foram realizados com uma imagem DICOM que foi convertida para o formato JPEG, e após sua conversão tinha como  tamanho 213kb. A inversão de cores dessa imagem através da ferramenta e do navegador Firefox Developer levou aproximadamente 238,1ms. 
 
 O acesso e armazenamento dessas imagens médicas a serem enviada para o sistema é o ponto mais importante a ser notado. Com o crescimento do sistema, um grande espaço para armazenamentos de dados se torna necessário. Por exemplo, se durante um dia forem enviadas ao sistema 30 imagens médicas de aproximadamente 20mb, no período de um mês o sistema já estaria armazenando aproximadamente 17Gb. Torna-se extremamente necessário então o estudo de novas políticas para o armazenamento desses dados, a forma de acesso e disponibilização além de uma escolha mais criteriosa para um adequado modelo de sistema de arquivos.
 
-O modelo implementado tornou possível a fácil interação entre a interface do sistema e o serviço. Os dados retornados no formato JSON permitem um balanceamento entre as tarefas executadas no servidor e tarefas executadas no cliente(navegador). Na figura 6 temos um gráfico da representação do volume de dados do sistema e o tempo necessário para carregar cada recurso. Um ponto interessante a ser notado é que, cada solicitação de imagem médica realizada no servidor é feita de forma assíncrona. As solicitações dessa forma permitem que as imagens sejam recuperadas de forma "paralela", sem que uma solicitação espere outra finalizar para ser executada. O processamento de todo o conteúdo da página demorou em média 2890ms, sendo que 490ms foram destinados a outros recursos. O tempo total para a solicitação das nove imagens de forma assíncrona foi em média 2400ms.
+O modelo implementado tornou possível a fácil interação entre a interface do sistema e o serviço. Os dados retornados no formato JSON permitem um balanceamento entre as tarefas executadas no servidor e tarefas executadas no cliente(navegador). Na figura \ref{fig:figura5} temos um gráfico da representação do volume de dados do sistema e o tempo necessário para carregar cada recurso. Um ponto interessante a ser notado é que, cada solicitação de imagem médica realizada no servidor é feita de forma assíncrona. As solicitações dessa forma permitem que as imagens sejam recuperadas de forma "paralela", sem que uma solicitação espere outra finalizar para ser executada. O processamento de todo o conteúdo da página demorou em média 2890ms, sendo que 490ms foram destinados a outros recursos. O tempo total para a solicitação das nove imagens de forma assíncrona foi em média 2400ms.
 
 
 \begin{figure}[ht]
 	\centering	
 	\caption[\hspace{0.1cm}Imagens Clínicas.]{Tempo Para Carregar os Recursos}
 	\vspace{-0.4cm}
-	\includegraphics[width=.7\textwidth]{figuras/analiseTempoIndividualParaCarregarImagens.png}
+	\includegraphics[width=1.0\textwidth]{figuras/analiseTempoIndividualParaCarregarImagens.png}
 	% Caption centralizada
 	% 	\captionsetup{justification=centering}
 	% Caption e fonte 
 	\vspace{-0.2cm}
 	%\\\textbf{\footnotesize Fonte: \cite{cap-livro} }
-	\label{fig:figura7}
+	\label{fig:figura5}
 \end{figure}
 
 \section{\esp Conclusão}

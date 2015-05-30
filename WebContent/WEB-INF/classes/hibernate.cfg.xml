@@ -8,10 +8,15 @@
     <session-factory>
 
         <!-- Database connection settings -->
-        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/imagemmedica</property>
-        <property name="connection.username">imagemmedica</property>
-        <property name="connection.password">dbimed2014</property>
+<!--         <property name="connection.driver_class">com.mysql.jdbc.Driver</property> -->
+<!--         <property name="connection.url">jdbc:mysql://localhost:3306/imagemmedica</property> -->
+<!--         <property name="connection.username">imagemmedica</property> -->
+<!--         <property name="connection.password">dbimed2014</property> -->
+        
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://mysql.diamedico.com.br/diamedico</property>
+        <property name="connection.username">diamedico</property>
+        <property name="connection.password">imed2015</property>
 
 		<!-- SQL dialect -->
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
