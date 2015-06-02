@@ -150,20 +150,20 @@ Para isso são utilizados arquivos XML, que determinam as propriedades das inter
 
 
 O sistema foi implementado de acordo com a arquitetura sugerida por \cite{REF10}.
-A primeira camada implementada foi o site, essa conta com várias interfaces que possibilitam ao médico ou ao usuário responsável o envio de informações ao WebService.
+A primeira camada implementada foi o site. Essa conta com várias interfaces que possibilitam ao médico ou ao usuário responsável o envio de informações ao WebService.
 Como dito em \cite{REF09}, um dos problemas que dificultam o uso dessas tecnologias é a resistência do profissional a novas ferramentas.
 Para mudar esse paradigma, as interfaces fornecidas pelo sistema devem ser cuidadosamente planejadas.
 Fatores como acessibilidade, flexibilidade e interatividade devem ser cuidadosamente estruturados.
 
 Para atender aos requisitos de uma interface intuitiva e clara foi utilizado o Java Server Pages(JSP).
-Esse integrado ao HTML permite adicionar dinamismo a páginas web, criando padrões e reutilizando componentes nas interfaces.
+Esse, integrado ao HTML permite adicionar dinamismo a páginas web, criando padrões e reutilizando componentes nas interfaces.
 Para oferecer um padrão visual e acessível aos componentes do JSP as interfaces foram desenvolvidas através da utilização do framework Bootstrap.
-Enquanto o JSP se preocupa com a estruturação do  documento, o framework reúne uma série de recursos que contribuem com o visual da interface. Também foi utilizado o framework JQuery, com propósito de auxiliar em uma melhor interação do usuário e interface.
+Enquanto o JSP se preocupa com a estruturação do  documento, o framework reúne uma série de recursos, que contribuem com o visual da interface. Também foi utilizado o framework JQuery, com propósito de auxiliar em uma melhor interação do usuário e interface.
 
-A primeira camada também oferece suporte para a visualização de imagens médicas através do navegador WEB. Essa ferramenta foi desenvolvida com auxilio do framework JQuery e de recursos oferecidos pelo HTML5. Ela fornece ao médico uma interface dinâmica para a visualização de registros clínicos de determinado paciente. Para registros clínicos como imagens médicas é possível aplicar operações que facilitem o diagnóstico. A biblioteca permite que outros algoritmos de processamento de imagens possam ser futuramente anexados e utilizados através da interface.
+A primeira camada também oferece suporte para a visualização de imagens médicas através do navegador WEB. Essa ferramenta foi desenvolvida com auxílio do framework JQuery e de recursos oferecidos pelo HTML5. Ela fornece ao médico uma interface dinâmica para a visualização de registros clínicos de determinado paciente. Para registros clínicos como imagens médicas é possível aplicar operações que facilitem o diagnóstico. A biblioteca permite que outros algoritmos de processamento de imagens possam ser futuramente anexados e utilizados através da interface.
 
 A interface do sistema necessita do WebService para seu correto funcionamento, porém o serviço WEB não necessita da interface para realizar suas operações. Ele foi implementado de forma que possa interagir com outros sistemas, através de requisições HTTP padronizadas.
-O processo de comunicação é resumido no seguinte fluxo: um usuário através de uma interface(essa pode ser um sistema ou mesmo um terminal) realiza solicitações, que são gerenciadas pelo serviço WEB.
+O processo de comunicação se resume no seguinte fluxo: um usuário através de uma interface(essa pode ser um sistema ou mesmo um terminal) realiza solicitações, que são gerenciadas pelo serviço WEB.
 Uma requisição HTTP é enviada para o servidor responsável pelo serviço WEB, na tentativa de uma possível inserção ou busca de dados e imagens médicas.
 Ao término do processamento da requisição no servidor uma resposta é retornada, esse retorno pode indicar sucesso ou falha da operação.
 
@@ -177,10 +177,10 @@ Os dados retornados como resposta às requisições são representações textua
 Por exemplo, um paciente físico é mapeado no sistema através de uma instância da classe \textit{Paciente}.
 A instância da classe será então convertida em uma cadeia de caracteres nos formatos padrões do sistema, JSON ou XML.
 Para realizar essa conversão, foi necessário a utilização de duas bibliotecas de parser.
-A Google Data APIs Cliente Library é uma delas, responsável por converter um objeto na linguagem Java para um String textual no formato XML.
-A Google-Json API foi a outra biblioteca utilizada, que faz semelhante conversão, porém tem como retorno uma String JSON.
+A Google Data APIs Cliente Library é uma delas, responsável por converter um objeto na linguagem Java para um \textit{String} textual no formato XML.
+A Google-Json API foi a outra biblioteca utilizada, que faz semelhante conversão, porém tem como retorno uma \textit{String} JSON.
 
-Após o tratamento dos dados recebidos pela requisção HTTP, o serviço WEB deve gerenciar todo o fluxo de operações internas. Esse estágio consiste na comunicação com o sistema de arquivos e banco de dados.
+Após o tratamento dos dados recebidos pela requisição HTTP, o serviço WEB deve gerenciar todo o fluxo de operações internas. Esse estágio consiste na comunicação com o sistema de arquivos e banco de dados.
 O modelo de arquitetura em camadas também foi adotado no desenvolvimento do WebService. Ele foi planejado e implementado baseado no conceito Modelo-Visão-Controlador(MVC).
 O MVC é um modelo de arquitetura de software, que separa a interação do usuário com dada interface da representação e do armazenamento da informação.
 
@@ -200,36 +200,36 @@ O MVC é um modelo de arquitetura de software, que separa a interação do usuá
 Para implementação do serviço de acordo com esse modelo foi primeiramente projetado um controlador de fluxo.
 Esse controlador gerência todas as requisições enviadas por usuários do sistema.
 Por exemplo, quando um usuário solicita a busca por uma imagem radiológica, a primeira tarefa é avisar ao serviço qual a operação deve ser executada.
-Para essa designação de tarefas foi utilizado um Servlet, tecnologia Java utilizada para estender as funções de um servidor.
+Para essa designação de tarefas foi utilizado um \textit{Servlet}, tecnologia Java utilizada para estender as funções de um servidor.
 
 Quando uma tarefa é designada pelo controlador, o serviço realiza um redirecionamento no fluxo.
-O fluxo então é continuado através de um classe do tipo command(CMD).
-O CMD também utiliza a tecnologia Servlet, mas seu escopo está limitado a apenas uma operação.
+O fluxo então é continuado através de um classe do tipo command(\textit{CMD}).
+O \textit{CMD} também utiliza a tecnologia Servlet, mas seu escopo está limitado a apenas uma operação.
 As ações dessa classe se resumem em transformar os dados fornecidos pelo controlador em informações.
 Essas serão transmitidas para as classes de regra de negócio, comunicação com o banco de dados e sistema de arquivos.
 Um exemplo disso seria o gerenciamento do armazenamento de todas as novas imagens que um usuário deseja inserir no sistema.
 
-As classes responsáveis pela regra de negócio(RN) contém uma série de diretivas e políticas necessárias para que uma operação seja realizada.
+As classes responsáveis pela regra de negócio(\textit{RN}) contém uma série de diretivas e políticas necessárias para que uma operação seja realizada.
 No exemplo anterior, em que foi citado a operação de armazenamento de uma nova imagem, uma regra de negócio seria controlar se a imagem radiológica está adequada aos formatos aceitos pelo sistema.
 Essas classes são geralmente utilizadas antes ou após uma operação no banco de dados ou no sistema de arquivos.
 
 Para a comunicação com o banco de dados foi utilizado o Hibernate, um framework Java para persistência com o banco de dados.
 A persistência é feita através do mapeamento de uma classe Java com uma tabela no banco de dados, utilizando o modelo relacional.
-A implementação desse modelo é auxiliado pelo uso de duas classes, uma classe Business Object(BO) e uma Data Access Objet(DAO).
-As classes BO são o mapeamento de uma entidade em uma tabela do banco de dados, e as classes DAO são responsáveis por detalhar e construir as consultas(SQL) a se serem realizadas.
-Por exemplo, um registro clínico do sistema seria representado por uma classe BO, e a forma que esse registro será recuperado no banco de dados é feita através de sua classe DAO.
+A implementação desse modelo é auxiliada pelo uso de duas classes, uma classe Business Object(\textit{BO}) e uma Data Access Objet(\textit{DAO}).
+As classes \textit{BO} são o mapeamento de uma entidade em uma tabela do banco de dados, e as classes \textit{DAO} são responsáveis por detalhar e construir as consultas(SQL) a se serem realizadas.
+Por exemplo, um registro clínico do sistema seria representado por uma classe \textit{BO}, e a forma que esse registro será recuperado no banco de dados é feita através de sua classe \textit{DAO}.
 
-Existem ações que se faz necessário o acesso ao sistema de arquivos.
+Existem ações em que se faz necessário o acesso ao sistema de arquivos.
 Por exemplo, quando um usuário deseja recuperar imagens de anomalias genéticas de uma criança.
 Terminada a sequência de operações até a recuperação de registros no banco de dados, o sistema terá que se comunicar com o sistema de arquivos.
-O motivo da comunicação é o fato das imagens não serem gravadas no banco de dados, o banco contém apenas o caminho físico delas no sistema de arquivo, onde elas serão fisicamente gravadas.
+O motivo da comunicação é o fato das imagens não serem gravadas no banco de dados. O banco contém apenas o caminho físico do sistema de arquivo, onde elas serão gravadas.
 Ao final desse processo, a resposta referente à requisição solicitada ao WebService estará pronta para ser entregue.
 
 \section{\esp Resultados}
 
-O sistema foi implementado em uma máquina Windows 7, Java Runtime environment 1.7, Java Advanced Imaging 1.1.3 e foi testado em um rede ethernet local 100 Mbit/s, utilizando o navegador Web Firefox Developer. Os testes realizados nessa máquina não apontaram problemas quanto ao trafego de dados pela rede. Contudo, o intuito do sistema é ser acessado de forma remota, isso gera uma preocupação com a rede disponibilizada para o tráfego das imagens. Na \ref{fig:figura3} é possível visualizar a interface responsável pelo envio dos registros clínicos de um paciente. Nessa mesma interface foi realizado um teste do envio de múltiplas imagens DICOM simultaneamente, em médica cada imagem levou aproximadamente 313,7ms para ser enviada ao sistema de arquivos. Se houver um grande volume de imagens médicas trafegadas num curto período de tempo, torna-se necessário a disponibilização de uma rede com grande banda destinada para o upload de arquivos
+O sistema foi implementado em uma máquina Windows 7, Java Runtime environment 1.7, Java Advanced Imaging 1.1.3 e foi testado em um rede ethernet local 100 Mbit/s, utilizando o navegador Web Firefox Developer. Os testes realizados nessa máquina não apontaram problemas quanto ao trafego de dados pela rede. Contudo, o intuito do sistema é ser acessado de forma remota e isso gera uma preocupação com a rede disponibilizada para o tráfego das imagens. Na \ref{fig:figura3} é possível visualizar a interface responsável pelo envio dos registros clínicos de um paciente. Nessa mesma interface foi realizado um teste do envio de múltiplas imagens DICOM simultaneamente, em médica cada imagem levou aproximadamente 313,7ms para ser enviada ao sistema de arquivos. Se houver um grande volume de imagens médicas trafegadas num curto período de tempo, torna-se necessária a disponibilização de uma rede com grande banda destinada para o upload de arquivos
 
-A conversão das imagens médicas quando solicitadas foi outro ponto observado durante os testes . A interface responsável por gerenciar os registros clínicos do paciente é onde essa solicitação é realizada. Ao se abrir essa interface é feita uma solicitação a cada registro clínico relacionado ao paciente em questão. Cada uma dessas solicitações na máquina testada levou em média 1178,8ms para ser executada, incluindo nesse tempo a conversão do formato DICOM para o jpeg. Um sistema com  múltiplos usuários fazendo várias solicitações simultâneas iria necessitar de um bom poder de processamento para realizar essas conversões em tempo hábil. Uma vantagem é que cada solicitação ocorre de forma assíncrona, sem depender do término do processamento de outra imagem. Graças a essa implementação o tempo de resposta e carregamento de toda a página diminui consideravelmente.
+A conversão das imagens médicas quando solicitadas foi outro ponto observado durante os testes. A interface responsável por gerenciar os registros clínicos do paciente é onde essa solicitação é realizada. Ao se abrir essa interface é feita uma solicitação a cada registro clínico relacionado ao paciente em questão. Cada uma dessas solicitações na máquina testada levou em média 1178,8ms para ser executada, incluindo nesse tempo a conversão do formato DICOM para o jpeg. Um sistema com  múltiplos usuários fazendo várias solicitações simultâneas iria necessitar de um bom poder de processamento para realizar essas conversões em tempo hábil. Uma vantagem é que cada solicitação ocorre de forma assíncrona, sem depender do término do processamento de outra imagem. Graças a essa implementação o tempo de resposta e carregamento de toda a página diminui consideravelmente.
 
 \begin{figure}[ht]
 	\centering	
@@ -247,8 +247,8 @@ A conversão das imagens médicas quando solicitadas foi outro ponto observado d
 Um recurso de grande importância para o sistema é a ferramenta para a visualização das imagens. Essa ferramenta para auxílio ao diagnóstico médico é oferecida ao usuário do 
 sistema através do próprio navegador Web. Os testes de visualização de imagens foram executados no navegador Firefox Developer. O recurso utilizado para essa visualização é 
 oferecido em novas versões dos principais browsers atuais como Internet Explorer, Firefox, Chrome, Opera e outros. Dessa forma os usuários que desejam fazer o uso do sistema 
-para auxílio ao diagnóstico, como médicos e instituições, deveram usar versões atualizadas desses navegadores. O tempo necessário para carregar a imagem na ferramenta é
-praticamento nulo(em média 1ms). Esse custo é baixo devido a prévia solicitação descrita, as imagens são convertidas e retornadas ao site em formato jpeg. Por exemplo, uma  imagem DICOM de 15mb tem como média de tamanho quando convertida para o formato jpeg de 200KB a 300KB. Na figura \ref{fig:figura4} é possível visualizar a ferramenta acessando uma imagem DICOM através do navegador Firefox.
+para auxílio ao diagnóstico, como médicos e instituições, deverão usar versões atualizadas desses navegadores. O tempo necessário para carregar a imagem na ferramenta é
+praticamento nulo(em média 1ms). Esse custo é baixo devido à prévia solicitação descrita, as imagens são convertidas e retornadas ao site em formato JPEG. Por exemplo, uma  imagem DICOM de 15MB tem como média de tamanho quando convertida para o formato JPEG de 200KB a 300KB. Na figura \ref{fig:figura4} é possível visualizar a ferramenta acessando uma imagem DICOM através do navegador Firefox.
 
 \begin{figure}[ht]
 	\centering	
@@ -263,7 +263,7 @@ praticamento nulo(em média 1ms). Esse custo é baixo devido a prévia solicita�
 	\label{fig:figura4}
 \end{figure}
 
-A ferramenta disponibilizada também oferece métodos básicos de processamento de imagem para o auxílio ao diagnóstico médico. Um exemplo seria a inversão de cores de uma radiográfica. Os testes de inversão de cores foram realizados com uma imagem DICOM que foi convertida para o formato JPEG, e após sua conversão tinha como  tamanho 213kb. A inversão de cores dessa imagem através da ferramenta e do navegador Firefox Developer levou aproximadamente 238,1ms. 
+A ferramenta disponibilizada também oferece métodos básicos de processamento de imagem para o auxílio ao diagnóstico médico. Um exemplo seria a inversão de cores de uma radiografia. Os testes de inversão de cores foram realizados com uma imagem DICOM que foi convertida para o formato JPEG, e após sua conversão tinha como  tamanho 213KB. A inversão de cores dessa imagem através da ferramenta e do navegador Firefox Developer levou aproximadamente 238,1ms. 
 
 O acesso e armazenamento dessas imagens médicas a serem enviada para o sistema é o ponto mais importante a ser notado. Com o crescimento do sistema, um grande espaço para armazenamentos de dados se torna necessário. Por exemplo, se durante um dia forem enviadas ao sistema 30 imagens médicas de aproximadamente 20mb, no período de um mês o sistema já estaria armazenando aproximadamente 17Gb. Torna-se extremamente necessário então o estudo de novas políticas para o armazenamento desses dados, a forma de acesso e disponibilização além de uma escolha mais criteriosa para um adequado modelo de sistema de arquivos.
 
@@ -285,6 +285,9 @@ O modelo implementado tornou possível a fácil interação entre a interface do
 
 \section{\esp Conclusão}
 
+A arquitetura proposta permite um eficiente ambiente para o desenvolvimento e colaboração de um sistema médico. A divisão das funcionalidades em camadas e a correta designação de frameworks para essas deixou o sistema flexível e adaptável. Os resultados após sua implementação mostram trazer benefícios para médicos, pacientes, desenvolvedores e a todos que de certa forma interagem com a medicina e telemedicina.
+
+Para trabalhos futuros seria interessante o estudo de novos soluções para transmissão dos registros clínicos. A aplicação e estudo de algorítimos CBIR também é um ponto interessante a ser explorado. Imagens clínicas de casos semelhantes de uma doença poderão ser exploradas e auxiliar ainda mais no processo do diagnóstico médico.
 
 
 % \subsection{\esp Trabalhos futuros}
