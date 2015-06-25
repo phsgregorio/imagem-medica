@@ -1,194 +1,206 @@
-% This file was created with JabRef 2.9.2.
+% This file was created with JabRef 2.10.
 % Encoding: Cp1252
 
-@ARTICLE{REF17,
-	author = {Woo Chaw and Seyed Mirisaee},
-	title = {Evaluation of a Content-Based Retrieval System for Blood Cell Images
-	with Automated Methods.},
-	journal = {Journal of Medical Systems},
-	year = {2011},
-	owner = {Familia},
-	timestamp = {2013.11.24}
+
+@Article{REF17,
+  Title                    = {Evaluation of a Content-Based Retrieval System for Blood Cell Images with Automated Methods.},
+  Author                   = {Woo Chaw and Seyed Mirisaee},
+  Journal                  = {Journal of Medical Systems},
+  Year                     = {2011},
+
+  Owner                    = {Familia},
+  Timestamp                = {2013.11.24}
 }
 
-@ARTICLE{REF06,
-	author = {Balfour DC and Evans S and Januska J and Lee HY and Lewis SJ and
-	Nolan SR and Noga M and Stemple C and Thapar K},
-	title = {Health information technology--results from a roundtable discussion},
-	journal = {Journal of Managed Care Pharmacy},
-	year = {2009},
-	owner = {Familia},
-	timestamp = {2013.11.24}
+@Article{REF06,
+  Title                    = {Health information technology--results from a roundtable discussion},
+  Author                   = {Balfour DC and Evans S and Januska J and Lee HY and Lewis SJ and Nolan SR and Noga M and Stemple C and Thapar K},
+  Journal                  = {Journal of Managed Care Pharmacy},
+  Year                     = {2009},
+
+  Owner                    = {Familia},
+  Timestamp                = {2013.11.24}
 }
 
-@ARTICLE{REF01,
-	author = {Todd Dorman},
-	title = {Telemedicine},
-	journal = {Anesthesiology Clinics of North America},
-	year = {1999},
-	owner = {Familia},
-	timestamp = {2013.11.24}
+@Article{REF01,
+  Title                    = {Telemedicine},
+  Author                   = {Todd Dorman},
+  Journal                  = {Anesthesiology Clinics of North America},
+  Year                     = {1999},
+
+  Owner                    = {Familia},
+  Timestamp                = {2013.11.24}
 }
 
-@ARTICLE{REF09,
-	author = {Mair FS and May C andO Donnell C and Finch T and Sullivan F and
-	Murray E.},
-	title = {Factors that promote or inhibit the implementation of e-health systems:
-	an explanatory systematic review},
-	journal = {Bulletin of the World Health Organization},
-	year = {2012},
-	owner = {Familia},
-	timestamp = {2013.11.24}
+@Article{REF09,
+  Title                    = {Factors that promote or inhibit the implementation of e-health systems: an explanatory systematic review},
+  Author                   = {Mair FS and May C andO Donnell C and Finch T and Sullivan F and Murray E.},
+  Journal                  = {Bulletin of the World Health Organization},
+  Year                     = {2012},
+
+  Owner                    = {Familia},
+  Timestamp                = {2013.11.24}
 }
 
-@ARTICLE{REF14,
-	author = {Mark O. Guld and Thomas Lehmann and Christian Thies and Benedikt
-	Fischer and Daniel Keysers and Michael Kohnen and Henning Schubert
-	and Berthold Wein},
-	title = {Content-Based image retrieval in medical applications for picture
-	archiving and communication systems},
-	journal = {Medical Imaging},
-	year = {2003},
-	owner = {Familia},
-	timestamp = {2013.11.24}
+@Article{REF14,
+  Title                    = {Content-Based image retrieval in medical applications for picture archiving and communication systems},
+  Author                   = {Mark O. Guld and Thomas Lehmann and Christian Thies and Benedikt Fischer and Daniel Keysers and Michael Kohnen and Henning Schubert and Berthold Wein},
+  Journal                  = {Medical Imaging},
+  Year                     = {2003},
+
+  Owner                    = {Familia},
+  Timestamp                = {2013.11.24}
 }
 
-@ARTICLE{REF18,
-	author = {Mark O. Guld and Christian Thies and Benedikt Fischer and Daniel
-	Keysers and Berthold Wein and Thomas Lehmann},
-	title = {A platform for distributed image processing and image retrieval.Visual
-	Communications and Image Processing},
-	journal = {Visual Communications and Image Processing},
-	year = {2003},
-	owner = {Familia},
-	timestamp = {2013.11.24}
+@Article{REF18,
+  Title                    = {A platform for distributed image processing and image retrieval.Visual Communications and Image Processing},
+  Author                   = {Mark O. Guld and Christian Thies and Benedikt Fischer and Daniel Keysers and Berthold Wein and Thomas Lehmann},
+  Journal                  = {Visual Communications and Image Processing},
+  Year                     = {2003},
+
+  Owner                    = {Familia},
+  Timestamp                = {2013.11.24}
 }
 
-@ARTICLE{REF10,
-	author = {Mark O. Guld and Christian Thies and Benedikt Fischer and Thomas
-	M. Lehmann},
-	title = {A generic concept for the implementation of medical image retrieval
-	systems},
-	journal = {International Journal of Medical Informatics},
-	year = {2007},
-	owner = {Familia},
-	timestamp = {2013.11.24}
+@Article{REF10,
+  Title                    = {A generic concept for the implementation of medical image retrieval systems},
+  Author                   = {Mark O. Guld and Christian Thies and Benedikt Fischer and Thomas M. Lehmann},
+  Journal                  = {International Journal of Medical Informatics},
+  Year                     = {2007},
+
+  Owner                    = {Familia},
+  Timestamp                = {2013.11.24}
 }
 
-@ARTICLE{REF03,
-	author = {Ashish JHA and Catherine Desroches and Eric Campbell and Karen Donelan
-	and Sowmya Rao and Timothy Ferris and Alexandra Shields and Sara
-	Rosenbaum and David Bluementhal},
-	title = {Use of Electronic Health Records in U.S. Hospitals},
-	journal = {The new england journal o f medicine},
-	year = {2009},
-	owner = {Familia},
-	timestamp = {2013.11.24}
+@Article{REF03,
+  Title                    = {Use of Electronic Health Records in U.S. Hospitals},
+  Author                   = {Ashish JHA and Catherine Desroches and Eric Campbell and Karen Donelan and Sowmya Rao and Timothy Ferris and Alexandra Shields and Sara Rosenbaum and David Bluementhal},
+  Journal                  = {The new england journal o f medicine},
+  Year                     = {2009},
+
+  Owner                    = {Familia},
+  Timestamp                = {2013.11.24}
 }
 
-@ARTICLE{REF07,
-	author = {Osmir Kmeteuk and Carolina Anacleto},
-	title = {Telemedicina: possibilidades versus realidade},
-	journal = {Revista Eletrônica de Sistemas de Informação},
-	year = {2005},
-	owner = {Familia},
-	timestamp = {2013.11.24}
+@Article{REF07,
+  Title                    = {Telemedicina: possibilidades versus realidade},
+  Author                   = {Osmir Kmeteuk and Carolina Anacleto},
+  Journal                  = {Revista Eletrônica de Sistemas de Informação},
+  Year                     = {2005},
+
+  Owner                    = {Familia},
+  Timestamp                = {2013.11.24}
 }
 
-@ARTICLE{REF16,
-	author = {Henning Muller and Nicolas Michoux and David Bandon and Antoine Geissbuhler},
-	title = {A review of content-based image retrieval systems in medical applications
-	-clinical benefits and future directions.},
-	journal = {International Journal of Medical Informatics},
-	year = {2004},
-	owner = {Familia},
-	timestamp = {2013.11.24}
+@Article{REF16,
+  Title                    = {A review of content-based image retrieval systems in medical applications -clinical benefits and future directions.},
+  Author                   = {Henning Muller and Nicolas Michoux and David Bandon and Antoine Geissbuhler},
+  Journal                  = {International Journal of Medical Informatics},
+  Year                     = {2004},
+
+  Owner                    = {Familia},
+  Timestamp                = {2013.11.24}
 }
 
-@ARTICLE{REF02,
-	author = {Ian Murdoch},
-	title = {Telemedicine},
-	journal = {British Journal of Ophthalmology},
-	year = {1998},
-	owner = {Familia},
-	timestamp = {2013.11.24}
+@Article{REF02,
+  Title                    = {Telemedicine},
+  Author                   = {Ian Murdoch},
+  Journal                  = {British Journal of Ophthalmology},
+  Year                     = {1998},
+
+  Owner                    = {Familia},
+  Timestamp                = {2013.11.24}
 }
 
-@ARTICLE{REF11,
-	author = {Choplin RH and Boehme JM and Maynard CD.},
-	title = {Picture archiving and communication systems: an overview},
-	journal = {RadioGraphics},
-	year = {1992},
-	owner = {Familia},
-	timestamp = {2013.11.24}
+@Article{REF11,
+  Title                    = {Picture archiving and communication systems: an overview},
+  Author                   = {Choplin RH and Boehme JM and Maynard CD.},
+  Journal                  = {RadioGraphics},
+  Year                     = {1992},
+
+  Owner                    = {Familia},
+  Timestamp                = {2013.11.24}
 }
 
-@ARTICLE{REF04,
-	author = {Carles Rubies and Tomas Fernandez and Francesca Olvera and Joan Guanyabens},
-	title = {Imagen médica, telemedicina y teleasistencia médica},
-	journal = {Elsevier},
-	year = {2010},
-	owner = {Familia},
-	timestamp = {2013.11.24}
+@Article{REF04,
+  Title                    = {Imagen médica, telemedicina y teleasistencia médica},
+  Author                   = {Carles Rubies and Tomas Fernandez and Francesca Olvera and Joan Guanyabens},
+  Journal                  = {Elsevier},
+  Year                     = {2010},
+
+  Owner                    = {Familia},
+  Timestamp                = {2013.11.24}
 }
 
-@ARTICLE{REF12,
-	author = {Ingrid Scholl and Til Aach and Thomas Deserno and Torsten Kunlen},
-	title = {Challenges of medical image processing},
-	journal = {Computer Science - Research and Development},
-	year = {2011},
-	owner = {Familia},
-	timestamp = {2013.11.24}
+@Article{REF12,
+  Title                    = {Challenges of medical image processing},
+  Author                   = {Ingrid Scholl and Til Aach and Thomas Deserno and Torsten Kunlen},
+  Journal                  = {Computer Science - Research and Development},
+  Year                     = {2011},
+
+  Owner                    = {Familia},
+  Timestamp                = {2013.11.24}
 }
 
-@ARTICLE{REF08,
-	author = {A.W.M. Smeulders and M. Worring and S. Santini and A. Gupta and R.
-	Jain.},
-	title = {Content-based image retrieval at the end of the early years},
-	journal = {Pattern Analysis and Machine Intelligence, IEEE Transactions},
-	year = {2000},
-	owner = {Familia},
-	timestamp = {2013.11.24}
+@Article{REF08,
+  Title                    = {Content-based image retrieval at the end of the early years},
+  Author                   = {A.W.M. Smeulders and M. Worring and S. Santini and A. Gupta and R. Jain.},
+  Journal                  = {Pattern Analysis and Machine Intelligence, IEEE Transactions},
+  Year                     = {2000},
+
+  Owner                    = {Familia},
+  Timestamp                = {2013.11.24}
 }
 
-@ARTICLE{REF05,
-	author = {Robert Stern},
-	title = {Diagnostic Imaging: Powerful, Indispensable, and Out of Control},
-	journal = {The American Journal of Medicine},
-	year = {2012},
-	owner = {Familia},
-	timestamp = {2013.11.24}
+@Article{REF05,
+  Title                    = {Diagnostic Imaging: Powerful, Indispensable, and Out of Control},
+  Author                   = {Robert Stern},
+  Journal                  = {The American Journal of Medicine},
+  Year                     = {2012},
+
+  Owner                    = {Familia},
+  Timestamp                = {2013.11.24}
 }
 
-@ARTICLE{REF15,
-	author = {H.D. Tagare and C.C. Jaffe and J. Dunca.},
-	title = {Medical image databases-a content-based retrieval approach},
-	journal = {Journal of the American Medical Informatics Association},
-	year = {1997},
-	owner = {Familia},
-	timestamp = {2013.11.24}
+@Article{REF15,
+  Title                    = {Medical image databases-a content-based retrieval approach},
+  Author                   = {H.D. Tagare and C.C. Jaffe and J. Dunca.},
+  Journal                  = {Journal of the American Medical Informatics Association},
+  Year                     = {1997},
+
+  Owner                    = {Familia},
+  Timestamp                = {2013.11.24}
 }
 
-@ARTICLE{REF19,
-	author = {See Ling Tan and Richard A. Lewis},
-	title = {Picture archiving and communication systems: A multicentre survey
-	of users experience and satisfaction},
-	journal = {European Journal of Radiology},
-	year = {2010},
-	volume = {75},
-	pages = {406-410},
-	owner = {Familia},
-	timestamp = {2014.03.30}
+@Article{REF19,
+  Title                    = {Picture archiving and communication systems: A multicentre survey of users experience and satisfaction},
+  Author                   = {See Ling Tan and Richard A. Lewis},
+  Journal                  = {European Journal of Radiology},
+  Year                     = {2010},
+  Pages                    = {406-410},
+  Volume                   = {75},
+
+  Owner                    = {Familia},
+  Timestamp                = {2014.03.30}
 }
 
-@ARTICLE{REF13,
-	author = {Vahid Yaghmai and Sean Salehi and Sivaraja Kuppuswami and Jonathan
-	Berlin},
-	title = {Rapid wireless transmission of head CT images to a personal digital
-	assistant for remote consultation},
-	journal = {Academic radiology},
-	year = {2004},
-	owner = {Familia},
-	timestamp = {2013.11.24}
+@Article{REF20,
+  Title                    = {Conversion of DICOM Image in to JPEG, BMP AND PNG Image Format},
+  Author                   = {Nitin Ujgare and Swai Baviskar},
+  Journal                  = {International Journal of Computer Applications},
+  Year                     = {2013},
+
+  Owner                    = {First Place},
+  Timestamp                = {2015.06.11}
+}
+
+@Article{REF13,
+  Title                    = {Rapid wireless transmission of head CT images to a personal digital assistant for remote consultation},
+  Author                   = {Vahid Yaghmai and Sean Salehi and Sivaraja Kuppuswami and Jonathan Berlin},
+  Journal                  = {Academic radiology},
+  Year                     = {2004},
+
+  Owner                    = {Familia},
+  Timestamp                = {2013.11.24}
 }
 
